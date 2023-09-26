@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import ProductoForm
 from django.contrib.auth.decorators import user_passes_test
+from django.db.models import Q
 from .models import *
 
 def is_admin(user):
@@ -51,7 +52,18 @@ def imperiohelenica(request):
 #ver los productos ingresados
 @user_passes_test(is_admin, login_url='index')
 def ver(request):
+    queryset = request.GET.get("buscar")
+    print(queryset)
     producto=Producto.objects.all()
+    if queryset:
+        producto = Producto.objects.filter(
+            Q(nombre_P__icontains = queryset) |
+            Q(descripcion__icontains= queryset)
+
+        ).distinct
+    
+    
+    
     return render(request,'CRUD/CRUD.html',{'producto':producto})
 
 @user_passes_test(is_admin, login_url='index')
@@ -69,8 +81,8 @@ def Productform(request):
 
 #eliminar
 @user_passes_test(is_admin, login_url='index')
-def eliminar(id):
-    producto=Producto.objects.get(id_Producto=id)
+def eliminar(request, id):
+    producto = Producto.objects.get(id_Producto=id)
     producto.delete()
     return redirect('Crud')
 
