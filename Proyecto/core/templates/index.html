@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-   
-   
+    <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css"> 
     <title>Document</title>
 </head>
 <body>
@@ -35,42 +34,126 @@
         <h3>Bienvenido {{user.username | upper}} a NVDR store</h3>
 
     </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="icons">
+                    <i class="fas fa-arrow-circle-left"></i>
+                    <img src="{% static 'img/logo.png' %}" alt="">
+                </div>
+                <div class="product-content">
+                    <div class="product-text">
+                        
+                        <h3>djasjkdsa</h3>
+                        <p>PN</p>
+                        <span>$96</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-1">Comprar</a>
+            </div>
+    
+            <div class="swiper-slide">
+                <div class="icons">
+                    <i class="fas fa-arrow-circle-left"></i>
+                    <img src="{% static 'img/kitespada.jpg' %}" alt="">
+                </div>
+                <div class="product-content">
+                    <div class="product-text">
+                        <h3>djasjkdsa</h3>
+                        <p>PN</p>
+                        <span>$96</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-1">Comprar</a>
+            </div>
+            <div class="swiper-slide">
+    
+                <div class="icons">
+                    <i class="fas fa-arrow-circle-left"></i>
+                    <img src="{% static 'img/kitespada.jpg' %}" alt="">
+                </div>
+                <div class="product-content">
+                    <div class="product-text">
+                        
+                        <h3>djasjkdsa</h3>
+                        <p>PN</p>
+                        <span>$96</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-1">Comprar</a>
+            </div>
+            <div class="swiper-slide">
+    
+                <div class="icons">
+                    <i class="fas fa-arrow-circle-left"></i>
+                    <img src="" alt="">
+                </div>
+                <div class="product-content">
+                    <div class="product-content">
+                        <div class="product-text">
+                            
+                            <h3>djasjkdsa</h3>
+                            <p>PN</p>
+                            <span>$96</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-1">Comprar</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="titulo">
+        <h3>Bienvenido {{ user.username | upper }} a NVDR store</h3>
+    </div>
     <br>
-
-
-<div class ="slider-frame">
-    <ul>
-        <li><img src="{% static 'img/yugioh.jpg'%}" alt =""></li>
-        <li><img src="{% static 'img/sirerec.png'%}" alt =""></li>
-        <li><img src="{% static 'img/salmondelsaber.jpg'%}" alt =""></li>
-        <li><img src="{% static 'img/kitespada.jpg'%}" alt =""></li>
+    
+    
+    
+    <div class="swiper-container mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'img/producto1.jpg' %}" alt="Producto 1">
+                    </div>
+                    <div class="product-details">
+                        <h3>Producto 1</h3>
+                        <p>Descripción del producto 1.</p>
+                        <div class="price">$19.99</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'img/producto1.jpg' %}" alt="Producto 1">
+                    </div>
+                    <div class="product-details">
+                        <h3>Producto 1</h3>
+                        <p>Descripción del producto 1.</p>
+                        <div class="price">$19.99</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{% static 'img/producto1.jpg' %}" alt="Producto 1">
+                    </div>
+                    <div class="product-details">
+                        <h3>Producto 1</h3>
+                        <p>Descripción del producto 1.</p>
+                        <div class="price">$19.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         
-        
-    </ul>   
-</div>   
-
-<br>
-<br>
-<br>
-<div class="titulo">
-    <h3>OFERTAS{{user.username | upper}} </h3>
-
-</div>
-<br>
-<br>
-<br>
-<br>
-
-    <div class ="slider-frame">
-        <ul>
-        <li><img src="{% static 'img/yugioh.jpg'%}" alt =""></li>
-        <li><img src="{% static 'img/sirerec.png'%}" alt =""></li>
-        <li><img src="{% static 'img/salmondelsaber.jpg'%}" alt =""></li>
-        <li><img src="{% static 'img/kitespada.jpg'%}" alt =""></li>
-        
-        
-    </ul>      
-</div>
     <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
@@ -103,6 +186,49 @@
             <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
         </div>
     </footer>
+    <script>
+        var swiper = new Swiper(".mySwiper2", {
+         slidesPerView: 1,
+         spaceBetween: 50,
+         pagination: {
+             el: ".swiper-pagination",
+             clickable: true,
+         },
+         autoplay: {
+             delay: 1000, // Cambia cada 3 segundos
+         },
+     });
+ </script>
+
+ <script>
+     var swiper = new Swiper(".mySwiper", {
+       effect: "coverflow",
+       grabCursor: true,
+       centeredSlides: true,
+       loop: true,
+       coverflowEffect: {
+         depth: 300,
+         spaceBetween: 10
+       },
+       navigation: {
+         nextEl: ".swiper-button-next",
+         prevEl: ".swiper-button-prev"
+       },
+       breakpoints: {
+         // Mostrar 2 diapositivas a la vez en dispositivos móviles
+         640: {
+           slidesPerView: 2
+         }
+       },
+       pagination: {
+         el: ".swiper-pagination",
+         type: "bullets"
+       },
+       slidesPerView: 1, // Mostrar 2 diapositivas a la vez
+       minslidesPerView: 1 // Mostrar al menos 1 diapositiva a la vez
+       
+     });
+         </script>
 </body>
 </html>
 
