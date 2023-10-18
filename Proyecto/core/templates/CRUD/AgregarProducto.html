@@ -13,18 +13,24 @@
 <body>
     <header class="header" >
         <div class="logo">
-            <a href="{% url 'index'%}"> <img src="{% static 'img/logo.png'%}" alt="logo de la marca"></a>
-           
+            <img src="{% static 'img/logo.png'%}" alt="logo de la marca">
         </div>
         <nav class="nav-links">
             <ul>
-                <li><a href="{% url 'edicion' %}">Servicios</a></li>
-                <li><a href="{% url 'cartas' %}">Cartas</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="{% url 'dana' %}">Cartas</a></li>
+                <li><a href="#">Accesorios</a></li>
                 <li><a href="#">Eventos</a></li>
-
+ 
             </ul>
         </nav>
-        <a href="" class="btn"><button>Iniciar Sesion</button></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn"><button>Logout</button></a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn"><button>Iniciar Sesion</button></a>
+        {% endif %}
+        
+        
     </header>
 
    
@@ -32,10 +38,6 @@
         {% csrf_token %}
 
         <div class="container">
-            <div class="form-grup">
-                {{formulario_c.id_Producto.label}}<br>
-                {{formulario_c.id_Producto}}<br>
-            </div>
             <div class="form-grup">
                 {{formulario_c.nombre_P.label}}<br>
                 {{formulario_c.nombre_P}}<br>

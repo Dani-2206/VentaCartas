@@ -9,15 +9,13 @@ urlpatterns=[
 
     path('quienesS',qs,name='info'),
 
-    path('cartas',cartas,name='cartas'),
 
-    path('edicion',edicion,name='edicion'),
+
+
 
     path('dana',dana,name='dana'),
 
-    path('sagrada',sagrada,name='sagrada'),
 
-    path('imperio',imperio,name='imperio'),
 
     path('productform',Productform, name='productform'),
     
@@ -31,7 +29,8 @@ urlpatterns=[
 
     path('eventos',eventos,name='eventos'),
 
-    path('imperiohelenica',imperiohelenica,name='imperiohelenica')
+   path('infoCarta/<id>', infoCarta, name="infoCarta")
+
 
   
 
