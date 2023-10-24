@@ -38,125 +38,50 @@
         <h3>Bienvenido {{user.username | upper}} a NVDR store</h3>
 
     </div>
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="icons">
-                    <i class="fas fa-arrow-circle-left"></i>
-                    <img src="{% static 'img/logo.png' %}" alt="">
-                </div>
-                <div class="product-content">
-                    <div class="product-text">
-                        
-                        <h3>djasjkdsa</h3>
-                        <p>PN</p>
-                        <span>$96</span>
-                    </div>
-                </div>
-                <a href="#" class="btn-1">Comprar</a>
-            </div>
-    
-            <div class="swiper-slide">
-                <div class="icons">
-                    <i class="fas fa-arrow-circle-left"></i>
-                    <img src="{% static 'img/kitespada.jpg' %}" alt="">
-                </div>
-                <div class="product-content">
-                    <div class="product-text">
-                        <h3>djasjkdsa</h3>
-                        <p>PN</p>
-                        <span>$96</span>
-                    </div>
-                </div>
-                <a href="#" class="btn-1">Comprar</a>
-            </div>
-            <div class="swiper-slide">
-    
-                <div class="icons">
-                    <i class="fas fa-arrow-circle-left"></i>
-                    <img src="{% static 'img/kitespada.jpg' %}" alt="">
-                </div>
-                <div class="product-content">
-                    <div class="product-text">
-                        
-                        <h3>djasjkdsa</h3>
-                        <p>PN</p>
-                        <span>$96</span>
-                    </div>
-                </div>
-                <a href="#" class="btn-1">Comprar</a>
-            </div>
-            <div class="swiper-slide">
-    
-                <div class="icons">
-                    <i class="fas fa-arrow-circle-left"></i>
-                    <img src="" alt="">
-                </div>
-                <div class="product-content">
-                    <div class="product-content">
-                        <div class="product-text">
-                            
-                            <h3>djasjkdsa</h3>
-                            <p>PN</p>
-                            <span>$96</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="btn-1">Comprar</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="titulo">
-        <h3>Bienvenido {{ user.username | upper }} a NVDR store</h3>
-    </div>
-    <br>
-    
-    
-    
+
     <div class="swiper-container mySwiper">
         <div class="swiper-wrapper">
+            {% for product in products %}
             <div class="swiper-slide">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{% static 'img/producto1.jpg' %}" alt="Producto 1">
+                        <img src="{{product.imagen.url}}" alt="Producto 1">
                     </div>
                     <div class="product-details">
-                        <h3>Producto 1</h3>
-                        <p>Descripción del producto 1.</p>
-                        <div class="price">$19.99</div>
+                        <h3>{{ product.nombre_P }}</h3>
+                        <div class="price">${{ product.precio }}</div>
                     </div>
                 </div>
+                
             </div>
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{% static 'img/producto1.jpg' %}" alt="Producto 1">
-                    </div>
-                    <div class="product-details">
-                        <h3>Producto 1</h3>
-                        <p>Descripción del producto 1.</p>
-                        <div class="price">$19.99</div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{% static 'img/producto1.jpg' %}" alt="Producto 1">
-                    </div>
-                    <div class="product-details">
-                        <h3>Producto 1</h3>
-                        <p>Descripción del producto 1.</p>
-                        <div class="price">$19.99</div>
-                    </div>
-                </div>
-            </div>
+            {%endfor%}
+
         </div>
         <div class="swiper-pagination"></div>
     </div>
+
+    
+
+    <div>
+        <a href="{% url 'tipo' tipo_carta=1 %}">
+            <img src="{% static 'img/Mitos_y_leyendas.png' %}" alt="">
+        </a>
+        <a href="{% url 'tipo' tipo_carta=2 %}">
+            <img src="{% static 'img/yu_gi_oh.png' %}" alt="">
+        </a>
+    </div>
+    
+    
+
+
+    
+    
+    
+
+
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         
     <footer class="pie-pagina">
         <div class="grupo-1">

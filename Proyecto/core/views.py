@@ -9,7 +9,8 @@ def is_admin(user):
 
 
 def index(request):
-    return render (request, 'index.html')
+    producto = Producto.objects.all()
+    return render (request, 'index.html',{'products':producto})
 
 
 
@@ -19,10 +20,10 @@ def qs(request):
 
 
 
-
 def dana(request):
     producto = Producto.objects.all()
     categorias = Categoria.objects.all()
+    tipo=Tipo.objects.all()
     queryset = request.GET.get("buscar")
     categoria = request.GET.get("categoria")
     tipo_carta = request.GET.get("TipoCarta")
@@ -36,7 +37,7 @@ def dana(request):
         ).distinct()
 
     if tipo_carta:
-        producto = producto.filter(id_Categoria__cartas__icontains=tipo_carta)
+        producto = producto.filter(id_Tipo=tipo_carta)
 
 
 
@@ -46,7 +47,7 @@ def dana(request):
     if precio_min and precio_max:
         producto = producto.filter(precio__range=(precio_min, precio_max))
 
-    return render(request, 'core/daana.html', {'producto': producto, 'categorias': categorias})
+    return render(request, 'core/daana.html', {'producto': producto, 'categorias': categorias,'tipo':tipo})
 
 
 
@@ -61,7 +62,13 @@ def eventos(request):
 
 def infoCarta(request, id):
     producto = get_object_or_404(Producto, id_Producto=id)
-    return render(request, 'infoCarta.html', {'carta': producto})
+    return render(request, 'core/infoCarta.html', {'carta': producto})
+
+
+def tipo(request, tipo_carta):
+    productos = Producto.objects.filter(id_Tipo=tipo_carta)
+    return render(request, 'core/productoEspecifico.html', {'cartas': productos})
+
 
 
 

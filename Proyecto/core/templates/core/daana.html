@@ -70,9 +70,9 @@
                       </select>
 
                       <select name="TipoCarta">
-                        <option value="">Todas las cartas</option>
-                        {% for categoria in categorias %}
-                            <option value="{{ categoria.cartas }}">{{ categoria.cartas }}</option>
+                        <option value="">Todas </option>
+                        {% for tipo in tipo %}
+                          <option value="{{ tipo.id_Tipo}}">{{ tipo.nombre_Tipo }}</option>
                         {% endfor %}
                       </select>
 

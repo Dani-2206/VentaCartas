@@ -86,8 +86,7 @@
 
     
     <div class="row">
-        <table border="1" WIDTH="10" 
-	    HEIGHT="10">
+        <table border="2">
             <thead>
                 <tr>
                     <td>id Producto</td>
@@ -95,6 +94,8 @@
                     <td>Descripcion</td>
                     <td>Imagen</td>
                     <td>Categoria</td>
+                    <td>Tipo</td>
+                    <td>Modificar</td>
                 </tr>
             </thead>
 
@@ -109,8 +110,12 @@
                     <td><img src="{{ve.imagen.url}}" alt="" WIDTH="100" 
                         HEIGHT="100"></td>
                     <td>{{ve.id_Categoria}}</td>
-                    <td><button class="boton1"><a href="{% url 'modificar' ve.id_Producto %}">Modificar</a></button></td>
-                    <td><button class="boton2"><a href="{% url 'eliminar' ve.id_Producto %}">Eliminar</a></button></td>
+                    <td>{{ve.id_Tipo}}</td>
+                    <td>
+                        <button class="boton1"><a href="{% url 'modificar' ve.id_Producto %}">Modificar</a></button>
+                        <button class="boton2"><a href="{% url 'eliminar' ve.id_Producto %}">Eliminar</a>
+                    </td>
+                    
                    
                 </tr>
             </tbody>

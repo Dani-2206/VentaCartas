@@ -9,14 +9,15 @@ class ProductoForm(ModelForm):
     class Meta:
         
         model=Producto
-        fields=['id_Producto','nombre_P','descripcion','imagen','precio','id_Categoria']
+        fields=['id_Producto','nombre_P','descripcion','imagen','precio','id_Categoria','id_Tipo']
         labels={
             'id_Producto':'id del producto',
             'nombre_P':'Nombre del producto',
             'descripcion':'Ingrese una descripcion ',
             'imagen':'Imagen',
             'precio':'Ingrese el precio',
-            'id_Categoria':'Ingrese la id del producto'
+            'id_Categoria':'Ingresar la categoria',
+            'id_Tipo':'Ingresar el tipo'
         }
 
         widgets={
