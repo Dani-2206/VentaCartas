@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
+    <link rel="stylesheet" href="'{% static 'css/bootstrap.min.css'%}" type="text/css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   
+    <title>Document</title>
+</head>
+<body>
+    <header class="header" >
+        <div class="logo">
+            <img src="{% static 'img/logo.png'%}" alt="logo de la marca">
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Cartas</a></li>
+                <li><a href="#">Eventos</a></li>
+ 
+            </ul>
+        </nav>
+        <a href="" class="btn"><button>Iniciar Sesion</button></a>
+    </header>
+
+
+
+    <section class="banner col-md col-lg col-sm col-xl"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('{% static 'img/portada.png' %}');">
+        <div class="banner__info ">
+          <p class="banner__p">
+              Bienvenido pequeño amigo ,hoy sabrás acerca de la página NVD Store  
+          </p>
+        </div>
+
+    </section>
+
+
+
+    <section class="section-1">
+        <div class="contenedor-texto col-md col-lg col-sm col-xl ">
+          <h2 class="palabras-seccion"> Objetivo</h2>
+          <p class="parrafo-seccion"> nuestro objetivo es, poder hacer que tras cada compra a nuestra página  web no haya hakeo de targetas  
+            y/o información personal del mismo , entregar un servicio de alta calidad y productos de alta calidad 
+            </p>
+          
+              
+        </div>
+        <img  class="imagenes-secction" src="{% static 'img/objetivo.png'%}" alt="">
+    </section>
+
+    <section class="section-2">
+      <div class="contenedor-texto col-md col-lg col-sm col-xl">
+        <h2 class="palabras-seccion ">Misión</h2>
+        <p  class="parrafo-seccion"> La misión de nuestra empresa es entregar productos de alta calidad ,servicio al cliente 24/7
+          y tener un lugar seguro de donde puedas comprar cartas de alta calidad
+        </p>
+        
+            
+      </div>
+      <img  class="imagenes-secction" src="{% static 'img/mision.png'%}" alt="">
+    </section>
+
+    <section class="section-3">
+        <div class="contenedor-texto col-md col-lg col-sm col-xl">
+          <h2 class="palabras-seccion">Visión</h2>
+          <p class="parrafo-seccion">Nuestra visión es tener un lugar seguro donde el cliente no tenga miedo de comprar , por robo de información
+
+            / hackeo de tarjetas . A través de una página e lugar donde su información solo se usará para gestionar la compra y nada mas
+            <br>
+
+          </p>
+          
+            
+        </div>
+        <img class="imagenes-secction" src="{% static 'img/apreton-de-manos.png'%}" alt="">
+    </section> 
+
+
+
+
+
+
+    
+
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="{% url 'index'%}">
+                        <img src="{% static 'img/logo.png'%}" class="logo2"   alt="Logo de SLee Dw">
+                    </a>
+                    
+                </figure>
+                
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p><a href="{% url 'info'%}" class="info">Quiénes somos?</a></p>
+                <p><a href="{% url 'info'%}" class="info">Nuestra Misión</a></p>
+                <p><a href="{% url 'info'%}" class="info">Objetivos</a></p>
+
+            </div>
+            <div class="box">
+                <h2>Síguenos</h2>
+                <div class="red-social">
+                    <a href="#" class="fa fa-facebook"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp' ></i></i></a>
+                    <a href="#" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2023 <b>NVD</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+</body>
+</html>

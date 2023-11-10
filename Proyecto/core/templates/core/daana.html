@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   {%load static%}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/espada.css' %}" type="text/css">
+
+  
   <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -41,7 +42,7 @@
         <li><a href="#">Servicios</a></li>
         <li><a href="{% url 'dana' %}">Cartas</a></li>
         <li><a href="#">Accesorios</a></li>
-        <li><a href="#">Eventos</a></li>
+        
 
       </ul>
     </nav>
@@ -118,8 +119,13 @@
   <div class="container">
 
     <div style="float: right; margin-right: 10px;">
-
-      {% include "Carro/widget.html" %}
+      {% if user.is_authenticated %}
+        {% include "Carro/widget.html" %}
+      {%else%}
+        <td colspan="3">
+          <div class="alert alert-danger text-center">Debe iniciar sesion</div>
+        </td>
+      {%endif%}
     </div>
 
     <div class="row">
@@ -137,94 +143,49 @@
             <div class="card-footer text-center d-flex justify-content-center align-items-center">
               <a href="{% url 'carro:agregar' producto.id_Producto %}" class="btn btn-sm btn-success">Agregar</a>
 
-
-              <div id="paypal-button-container"></div>
-              <script>
-                paypal.Buttons({
-                  createOrder: function (data, actions) {
-                    return actions.order.create({
-                      purchase_units: [{
-                        amount: {
-                          value: 569
-                        }
-                      }]
-                    });
-                  },
-                  onApprove: function (data, actions) {
-                    actions.order.capture().then(function (detalles) {
-                      console.log(detalles);
-                    });
-                  },
-                  onCancel: function (data) {
-                    alert("Lo sentimos, no se pudo realizar la compra del producto.");
-                    console.log(data);
-                  }
-
-                }).render('#paypal-button-container');
-
-              </script>
-
-
-</body>
-
-</html>
-
-</div>
-</a>
-</div>
-</div>
-{% endfor %}
-
-</div>
-</div>
-
-<br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="pie-pagina">
-  <div class="grupo-1">
-    <div class="box">
-      <figure>
-        <a href="{% url 'index'%}">
-          <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
+            </div>
         </a>
-
-      </figure>
-
-    </div>
-    <div class="box">
-      <h2>SOBRE NOSOTROS</h2>
-      <p><a href="{% url 'info'%}" class="info">Quiénes somos?</a></p>
-      <p><a href="{% url 'info'%}" class="info">Nuestra Misión</a></p>
-      <p><a href="{% url 'info'%}" class="info">Objetivos</a></p>
-
-    </div>
-    <div class="box">
-      <h2>Síguenos</h2>
-      <div class="red-social">
-        <a href="#" class="fa fa-facebook"><i class='bx bxl-facebook-circle'></i></a>
-        <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
-        <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp'></i></i></a>
-        <a href="#" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
       </div>
     </div>
+    {% endfor %}
+
   </div>
-  <div class="grupo-2">
-    <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
-  </div>
-</footer>
+
+
+
+
+  <footer class="pie-pagina">
+    <div class="grupo-1">
+      <div class="box">
+        <figure>
+          <a href="{% url 'index'%}">
+            <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
+          </a>
+
+        </figure>
+
+      </div>
+      <div class="box">
+        <h2>SOBRE NOSOTROS</h2>
+        <p><a href="{% url 'info'%}" class="info">Quiénes somos?</a></p>
+        <p><a href="{% url 'info'%}" class="info">Nuestra Misión</a></p>
+        <p><a href="{% url 'info'%}" class="info">Objetivos</a></p>
+
+      </div>
+      <div class="box">
+        <h2>Síguenos</h2>
+        <div class="red-social">
+          <a href="#" class="fa fa-facebook"><i class='bx bxl-facebook-circle'></i></a>
+          <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp'></i></i></a>
+          <a href="#" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="grupo-2">
+      <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
+    </div>
+  </footer>
 </body>
 
 </html>

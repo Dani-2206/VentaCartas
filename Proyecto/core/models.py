@@ -28,5 +28,16 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre_P
+    
+
+
+class Venta(models.Model):
+    id_Venta = models.AutoField(primary_key=True, verbose_name="ID del producto")
+    nombre=models.CharField(verbose_name="Nombre DEl comprador", max_length=20)
+    fecha= models.CharField(verbose_name="fecha ", max_length=50)
+    email= models.CharField(verbose_name="Email", max_length=50)
+
+    def __str__(self):
+        return self.nombre
 
 

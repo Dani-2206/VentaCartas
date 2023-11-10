@@ -1,7 +1,14 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .forms import ProductoForm
 from django.contrib.auth.decorators import user_passes_test
+from django.http import JsonResponse
+from carro.carro import Carro
+
+import json
+
 from django.db.models import Q
+
+
 from .models import *
 
 def is_admin(user):
@@ -21,6 +28,7 @@ def qs(request):
 
 
 def dana(request):
+
     producto = Producto.objects.all()
     categorias = Categoria.objects.all()
     tipo=Tipo.objects.all()
@@ -135,4 +143,40 @@ def Modificar(request, id):
         formulario2=ProductoForm()
     
     return render(request, 'CRUD/Modificar.html', datos)
+
+
+def pago_realizado(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body.decode('utf-8'))
+
+            nombre_comprador = data.get('comprador', '')
+            fecha_compra = data.get('fecha', '')  
+            email = data.get('email', '') 
+            status_compra = data.get('status', '')
+
+
+            print(f"Nombre del comprador: {nombre_comprador}")
+            print(f"La fecha de la compra: {fecha_compra}")
+            print(f"Email: {email}")
+            print(f"Status: {status_compra}")
+
+
+            if(status_compra=="COMPLETED"):
+                print("el estatus de la compra esta bien")
+                carro=Carro(request)
+                carro.limpiar_carro()
+                venta=Venta(nombre=nombre_comprador,fecha=fecha_compra,email=email)
+                venta.save()
+
+            else:
+                print("como me ves")
+            
+
+            return JsonResponse({'status': 'success', 'message': 'Orden procesada con éxito'})
+
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)})
+
+    return render(request, 'core/pago.html')
 

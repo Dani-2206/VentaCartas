@@ -1,0 +1,8 @@
+.my-zoom-class {
+    cursor: zoom-in;
+}
+  
+.my-zoom-class:hover {
+    transform: scale(1.25);
+}
+  
