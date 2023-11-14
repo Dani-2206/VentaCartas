@@ -1,5 +1,6 @@
 def importe_total_carro(request):
     total = 0
+    total_trans = 0
     
     
     if request.user.is_authenticated:
