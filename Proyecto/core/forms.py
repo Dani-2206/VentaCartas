@@ -9,7 +9,13 @@ class ProductoForm(ModelForm):
     class Meta:
         
         model=Producto
-        fields=['id_Producto','nombre_P','descripcion','imagen','precio','id_Categoria','id_Tipo']
+        fields=['id_Producto',
+                'nombre_P',
+                'descripcion',
+                'imagen',
+                'precio',
+                'id_Categoria',
+                'id_Tipo']
         labels={
             'id_Producto':'id del producto',
             'nombre_P':'Nombre del producto',
@@ -68,3 +74,98 @@ class ProductoForm(ModelForm):
         }
 
 
+
+class ProductVentas(ModelForm):
+        class Meta:
+        
+            model=Venta
+            fields=[
+                    'nombre',
+                    'nombre_usuario',
+                    'fecha',
+                    'email',
+                    'productos',
+                    'total',
+                    'direccion',
+                    'region',
+                    'estado']
+            labels={
+                'nombre': 'Ingrese el nombre',
+                'nombre_usuario': 'Ingrese el nombre del usuario',
+                'fecha': 'Fecha realizada la compra',
+                'email': 'Email',
+                'productos': 'Productos',
+                'total': 'Total',
+                'direccion': 'Ingrese la direccion',
+                'region': 'Ingrese la region',  # Corrected typo here
+                'estado': 'Ingrese el estado del producto'
+            }
+
+
+            widgets = {
+                'nombre': forms.TextInput(
+                    attrs={
+                        'class': 'controls',
+                        'id': 'NombrePersona',
+                        'name': 'NombrePersona',
+                        'placeholder': 'Ingrese el nombre de la persona'
+                    }
+                ),
+                'nombre_usuario': forms.TextInput(
+                    attrs={
+                        'class': 'controls',
+                        'id': 'nombreUsuario',
+                        'name': 'nombreUsuario',
+                        'placeholder': 'Ingrese el nombre del Usuario'
+                    }
+                ),
+                'email': forms.TextInput(
+                    attrs={
+                        'class': 'controls',
+                        'id': 'Email',
+                        'name': 'Email',
+                        'placeholder': 'Ingrese el email'
+                    }
+                ),
+                'productos': forms.Textarea(
+                    attrs={
+                        'class': 'controls',
+                        'id': 'Productos',
+                        'name': 'Productos',
+                        'placeholder': 'Productos'
+                    }
+                ),
+                'total': forms.TextInput(
+                    attrs={
+                        'class': 'controls',
+                        'id': 'Total',
+                        'name': 'Total',
+                        'placeholder': '1000',
+                        'required': True
+                    }
+                ),
+                'direccion': forms.TextInput(
+                    attrs={
+                        'class': 'controls',
+                        'id': 'direccion',
+                        'name': 'direccion',
+                        'placeholder': 'Ingrese la direccion'
+                    }
+                ),
+                'region': forms.TextInput(
+                    attrs={
+                        'class': 'controls',
+                        'id': 'region',
+                        'name': 'region',
+                        'placeholder': 'Ingrese la region'
+                    }
+                ),
+                'estado': forms.TextInput(
+                    attrs={
+                        'class': 'controls',
+                        'id': 'estado',
+                        'name': 'estado',
+                        'placeholder': 'Ingrese el estado del producto'
+                    }
+                ),
+            }

@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     {%load static%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/fondo.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/buscador.css' %}" type="text/css">
+    <link rel="stylesheet" href="'{% static 'css/bootstrap.min.css'%}" type="text/css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   
     <title>Document</title>
 </head>
-
-<body>
+<body class="container">
     <header class="header">
         <div class="logo">
             <img src="{% static 'img/logo.png'%}" alt="logo de la marca">
@@ -54,49 +50,78 @@
 
     </header>
 
-    <div class="titulo">
-        <h3>gracias por tu compra {{user.username | upper}} a NVDR store</h3>
-        {{nombre_comprador}}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+        <div class="container">
+            <section class="form-register">
+                <div class="form-container">
+                    <h4>Registro de producto</h4>
+    
+                    <div class="form-group">
+                        <label for="{{formulario_c.nombre_P.id_for_label}}">{{formulario_c.nombre_P.label}}</label>
+                        {{formulario_c.nombre_P}}
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="{{formulario_c.descripcion.id_for_label}}">{{formulario_c.descripcion.label}}</label>
+                        {{formulario_c.descripcion}}
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="{{formulario_c.imagen.id_for_label}}">{{formulario_c.imagen.label}}</label><br>
+                        {{formulario_c.imagen}}
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="{{formulario_c.precio.id_for_label}}">{{formulario_c.precio.label}}</label>
+                        {{formulario_c.precio}}
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="{{formulario_c.id_Categoria.id_for_label}}">{{formulario_c.id_Categoria.label}}</label>
+                        {{formulario_c.id_Categoria}}
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="{{formulario_c.id_Tipo.id_for_label}}">{{formulario_c.id_Tipo.label}}</label>
+                        {{formulario_c.id_Tipo}}
+                    </div>
+    
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
+                        <button type="reset" class="btn btn-secondary" name="borrar">Borrar</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </form>
 
-    </div>
-
+    <br>
+    <br><br>
+    <br>
+    
+    
+    
     
 
 
-   
 
 
 
 
 
-
-    <script>
-        
-        var detallesPedido = localStorage.getItem('detallesPedido');
-
-       
-        if (detallesPedido) {
-            detallesPedido = JSON.parse(detallesPedido);
-
-            
-            console.log("Detalles del pedido en la página siguiente:", detallesPedido);
-        } else {
-            console.log("No hay detalles del pedido almacenados.");
-        }
-
-
-    </script>
 
     <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
                 <figure>
-                    <a href="{% url 'index'%}">
-                        <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
+                    <a href="#">
+                        <img src="{% static 'img/logo.png'%}" class="logo2"   alt="Logo de SLee Dw">
                     </a>
-
+                    
                 </figure>
-
+                
             </div>
             <div class="box">
                 <h2>SOBRE NOSOTROS</h2>
@@ -110,16 +135,14 @@
                 <div class="red-social">
                     <a href="#" class="fa fa-facebook"><i class='bx bxl-facebook-circle'></i></a>
                     <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
-                    <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp'></i></i></a>
+                    <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp' ></i></i></a>
                     <a href="#" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
                 </div>
             </div>
         </div>
         <div class="grupo-2">
-            <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
+            <small>&copy; 2023 <b>NVD</b> - Todos los Derechos Reservados.</small>
         </div>
     </footer>
-
 </body>
-
 </html>

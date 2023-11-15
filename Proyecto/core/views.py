@@ -1,14 +1,14 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import ProductoForm
+from .forms import ProductoForm,ProductVentas
 from django.contrib.auth.decorators import user_passes_test
 from django.http import JsonResponse
-from carro.carro import Carro
-
 import json
-
 from django.db.models import Q
 
 
+
+from carro.context_processor import importe_total_carro
+from carro.carro import Carro
 from .models import *
 
 def is_admin(user):
@@ -105,7 +105,7 @@ def ver(request):
     if precio_min and precio_max:
         producto = producto.filter(precio__range=(precio_min,precio_max))
 
-    return render(request,'CRUD/CRUD.html',{'producto':producto,'categorias':categorias})
+    return render(request,'CRUD/Productos/CRUD.html',{'producto':producto,'categorias':categorias})
 
 @user_passes_test(is_admin, login_url='index')
 #agregar
@@ -118,7 +118,7 @@ def Productform(request):
     else:
         formulario = ProductoForm()  # Crea una instancia del formulario
         
-    return render(request, 'CRUD/AgregarProducto.html', {'formulario_c': formulario})  # Pasa la instancia del formulario al contexto
+    return render(request, 'CRUD/Productos/AgregarProducto.html', {'formulario_c': formulario})  # Pasa la instancia del formulario al contexto
 
 #eliminar
 @user_passes_test(is_admin, login_url='index')
@@ -142,7 +142,7 @@ def Modificar(request, id):
     else:
         formulario2=ProductoForm()
     
-    return render(request, 'CRUD/Modificar.html', datos)
+    return render(request, 'CRUD/Productos/Modificar.html', datos)
 
 
 def pago_realizado(request):
@@ -150,28 +150,41 @@ def pago_realizado(request):
         try:
             data = json.loads(request.body.decode('utf-8'))
 
-            nombre_comprador = data.get('comprador', '')
-            fecha_compra = data.get('fecha', '')  
-            email = data.get('email', '') 
-            status_compra = data.get('status', '')
+            nombre_comprador = data.get('comprador', '') # nombre del paypal
+            fecha_compra = data.get('fecha', '')  #fecha de la compra
+            status_compra = data.get('status', '') #status de la compra
+            productos=importe_total_carro(request)
+            lista_productos=productos["lista_producto"] # productos que eligio
+            total=productos["importe_total_carro"] # total (dinero)
+
+            nombre_usuario = request.user.username # nombre de usuario
+            email=request.user.email # email pero de la pagina
+            direccion = request.user.direccion
+            region = request.user.region
+
+
 
 
             print(f"Nombre del comprador: {nombre_comprador}")
+            print(f"Usuario: {nombre_usuario}")
             print(f"La fecha de la compra: {fecha_compra}")
             print(f"Email: {email}")
             print(f"Status: {status_compra}")
+            print(f"Lista Productos: {lista_productos}")
+            print(f"Lista Productos: {total}")
 
 
-            if(status_compra=="COMPLETED"):
-                print("el estatus de la compra esta bien")
-                carro=Carro(request)
-                carro.limpiar_carro()
-                venta=Venta(nombre=nombre_comprador,fecha=fecha_compra,email=email)
+            if status_compra == "COMPLETED":
+                print("El status de la compra está bien")
+                venta = Venta(nombre=nombre_comprador,nombre_usuario=nombre_usuario ,
+                              fecha=fecha_compra, email=email,productos=lista_productos,total=total,direccion=direccion,region=region)
                 venta.save()
+                carro = Carro(request)
+                carro.limpiar_carro()
 
+                return JsonResponse({'status': 'success', 'message': 'Orden procesada con éxito'})
             else:
-                print("como me ves")
-            
+                print("El status de la compra no es COMPLETED")
 
             return JsonResponse({'status': 'success', 'message': 'Orden procesada con éxito'})
 
@@ -180,3 +193,35 @@ def pago_realizado(request):
 
     return render(request, 'core/pago.html')
 
+def infoU(request):
+    usuario=request.user.username
+    info = Venta.objects.filter(nombre_usuario=usuario)
+    if info:
+        return render(request, 'usuario/infoUsuario.html', {"informacion": info})
+    else:
+        return render(request, 'usuario/infoUsuario.html', {"informacion": None})
+
+
+@user_passes_test(is_admin, login_url='index')
+def VerCompras(request):
+    Ventas=Venta.objects.all()
+    return render(request, 'CRUD/Ventas/VerEnvios.html',{"Ventas":Ventas})
+
+@user_passes_test(is_admin, login_url='index')
+def ModificarVenta(request, id_Venta):
+    producto = Venta.objects.get(id_Venta=id_Venta)
+    datos = {
+        'form': ProductVentas(instance=producto)
+    }
+    
+    if request.method == "POST":
+        formulario2 = ProductVentas(data=request.POST, instance=producto)
+        if formulario2.is_valid():
+            formulario2.save()
+            return redirect('VerCompras')
+    else:
+        formulario2 = ProductVentas(instance=producto)
+    
+    datos['form'] = formulario2  
+    
+    return render(request, 'CRUD/Ventas/ModificarVentas.html', datos)

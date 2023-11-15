@@ -17,7 +17,10 @@ urlpatterns=[
     path('eventos',eventos,name='eventos'),
     path('infoCarta/<id>', infoCarta, name="infoCarta"),
     path('tipo/<int:tipo_carta>/', tipo, name="tipo"),
-    path('pago', pago_realizado, name="pago_realizado")
+    path('pago', pago_realizado, name="pago_realizado"),
+    path('infoU',infoU, name="infoU"),
+    path('Ventas',VerCompras, name="VerCompras"),
+    path('venta/<int:id_Venta>/', ModificarVenta, name="ModificarVenta"),
 
 
 

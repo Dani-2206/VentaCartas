@@ -34,9 +34,14 @@ class Producto(models.Model):
 class Venta(models.Model):
     id_Venta = models.AutoField(primary_key=True, verbose_name="ID del producto")
     nombre=models.CharField(verbose_name="Nombre DEl comprador", max_length=20)
+    nombre_usuario=models.CharField(verbose_name="Nombre DEl comprador", max_length=20,default="")
     fecha= models.CharField(verbose_name="fecha ", max_length=50)
     email= models.CharField(verbose_name="Email", max_length=50)
-
+    productos=models.TextField(verbose_name="Productos Seleccionados",default="")
+    total= models.IntegerField(verbose_name='total del producto',default=0)
+    direccion =models.CharField(verbose_name="Email", max_length=50, default="")
+    region =models.CharField(verbose_name="Email", max_length=50, default="")
+    estado=models.CharField(verbose_name='Estado del producto ',max_length=20,default="en tienda")
     def __str__(self):
         return self.nombre
 

@@ -39,7 +39,7 @@
     <tfoot>
         <tr >
             <td colspan="3">
-                <p>Total:<span>$</span>{{importe_total_carro}}</p>
+                <p>Total:<span>$</span>{{total_formateado}}</p>
             </td>
         </tr>
 
@@ -79,9 +79,7 @@
             var url = "{% url 'pago_realizado' %}";
             var nombreComprador = detalles.payer.name.given_name;
             var fecha = detalles.create_time;
-
             var email = detalles.payer.email_address;
-
             var status = detalles.status;
 
 

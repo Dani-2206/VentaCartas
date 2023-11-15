@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     {%load static%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/fondo.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/buscador.css' %}" type="text/css">
-    <title>Document</title>
+    <link rel="stylesheet" href="'{% static 'css/bootstrap.min.css'%}" type="text/css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   
+    <title>Ventas </title>
 </head>
-
 <body>
     <header class="header">
         <div class="logo">
@@ -53,15 +48,85 @@
 
 
     </header>
+    <br>
 
-    <div class="titulo">
-        <h3>gracias por tu compra {{user.username | upper}} a NVDR store</h3>
-        {{nombre_comprador}}
-
-    </div>
-
+    <h2>Compras realizadas en la pagina</h2>
+    <br>
     
 
+    
+  
+
+
+    
+    <div class="row" style="margin: 12px 12px;">
+        <table border="2" >
+            <thead>
+                <tr>
+                    <th style="padding: 12px;">Id Venta</th>
+                    <th style="padding: 12px;">Productos</th>
+                    <th style="padding: 12px;">Region</th>
+                    <th style="padding: 12px;">Direccion</th>
+
+                    <th style="padding: 12px;">Usuario</th>
+                    <th style="padding: 12px;">Fecha</th>
+                    <th style="padding: 12px;">Email</th>
+                    <th style="padding: 12px;">total</th>
+                    <th style="padding: 12px;">Estado</th>
+                    <th style="padding: 12px;">Modificar</th>
+                </tr>
+            </thead>
+
+            {% for ve in Ventas %}
+            
+            <tbody>
+                <tr>
+                    
+                    <td>{{ve.id_Venta}}</td>
+                    <td>{{ve.productos}}</td>
+                    <td>{{ve.region}}</td>
+                    <td>{{ve.direccion}}</td>
+                    <td>{{ve.nombre_usuario}}</td>
+                    <td>{{ve.fecha}}</td>
+                    <td>{{ve.email}}</td>
+                    <td>{{ve.total}}</td>
+                    <td>{{ve.estado}}</td>
+
+                    <td>
+                        <button class="boton1"><a href="{% url 'ModificarVenta' ve.id_Venta %}">Modificar</a></button>
+                    </td>
+                    
+                   
+                </tr>
+            </tbody>
+            
+            {% endfor %}
+            
+            
+
+        </table>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
    
 
@@ -70,33 +135,19 @@
 
 
 
-    <script>
-        
-        var detallesPedido = localStorage.getItem('detallesPedido');
-
-       
-        if (detallesPedido) {
-            detallesPedido = JSON.parse(detallesPedido);
-
-            
-            console.log("Detalles del pedido en la página siguiente:", detallesPedido);
-        } else {
-            console.log("No hay detalles del pedido almacenados.");
-        }
 
 
-    </script>
 
     <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
                 <figure>
-                    <a href="{% url 'index'%}">
-                        <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
+                    <a href="#">
+                        <img src="{% static 'img/logo.png'%}" class="logo2"   alt="Logo de SLee Dw">
                     </a>
-
+                    
                 </figure>
-
+                
             </div>
             <div class="box">
                 <h2>SOBRE NOSOTROS</h2>
@@ -110,16 +161,14 @@
                 <div class="red-social">
                     <a href="#" class="fa fa-facebook"><i class='bx bxl-facebook-circle'></i></a>
                     <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
-                    <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp'></i></i></a>
+                    <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp' ></i></i></a>
                     <a href="#" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
                 </div>
             </div>
         </div>
         <div class="grupo-2">
-            <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
+            <small>&copy; 2023 <b>NVD</b> - Todos los Derechos Reservados.</small>
         </div>
     </footer>
-
 </body>
-
 </html>
