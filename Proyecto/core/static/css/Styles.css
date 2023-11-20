@@ -127,63 +127,71 @@ body{
     
 }
 
-
-
-
+/* Estilos del footer */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px;
-    
-    
 }
 
-.pie-pagina{
+/* Estilos de la sección inferior de la página */
+.pie-pagina {
     width: 100%;
     background-color: #0a141d;
-
-
+    text-align: center; /* Añadido para centrar el contenido */
 }
-.pie-pagina .grupo-1{
+
+.pie-pagina .grupo-1 {
     width: 100%;
     max-width: 1200px;
-    margin: 5px;
-    display:grid;
+    margin: auto; /* Cambiado de 5px a auto para centrar */
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap:40px;
+    grid-gap: 40px;
     padding: 12px 2px;
 }
-.pie-pagina .grupo-1 .box figure{
+
+.pie-pagina .grupo-1 .box {
+    text-align: center;
+}
+
+.pie-pagina .grupo-1 .box figure {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.pie-pagina .grupo-1 .box figure img{
+
+.pie-pagina .grupo-1 .box figure img {
     width: 180px;
     transition: all 0.1s;
-    max-width: 150px; /* Ajusta el tamaño máximo de la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin: 0 auto; /* Centra horizontalmente la imagen */
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto;
 }
 
-.logo2:hover{
+.logo2:hover {
     transform: scale(1.1);
 }
 
-
-.pie-pagina .grupo-1 .box h2{
+.pie-pagina .grupo-1 .box h2 {
     color: #fff;
     margin-bottom: 25px;
     font-size: 20px;
 }
-.pie-pagina .grupo-1 .box p{
+
+.pie-pagina .grupo-1 .box p {
     color: #efefef;
     margin-bottom: 10px;
 }
-.pie-pagina .grupo-1 .red-social a{
+
+.pie-pagina .grupo-1 .red-social {
+    text-align: center;
+}
+
+.pie-pagina .grupo-1 .red-social a {
     display: inline-block;
     text-decoration: none;
     width: 45px;
@@ -194,81 +202,56 @@ footer {
     background-color: #0d2033;
     text-align: center;
     transition: all 300ms ease;
-
 }
 
-
-.pie-pagina .grupo-1 .red-social a:hover{
+.pie-pagina .grupo-1 .red-social a:hover {
     color: aqua;
     transform: scale(1.2);
 }
-.pie-pagina .grupo-2{
+
+/* Estilos de la segunda sección inferior de la página */
+.pie-pagina .grupo-2 {
     background-color: #0a1a2a;
     padding: 15px 10px;
     text-align: center;
     color: #fff;
 }
-.pie-pagina .grupo-2 small{
+
+.pie-pagina .grupo-2 small {
     font-size: 15px;
 }
 
-.info{
+/* Estilos de enlaces de información */
+.info {
     transition: 0.2s;
     text-decoration: none;
     color: #ffff;
 }
 
-.info:hover{
+.info:hover {
     transform: scale(5.2);
     color: red;
-    
 }
 
-
-
-@media (max-width:900px){
-
-    .pie-pagina .grupo-1{
-        width: 100%;
-        max-width: 1200px;
-        margin: auto;
-        display:grid;
-        display:flex;
-        flex-direction: column;
-        
-    }
-    .pie-pagina .grupo-1{
-        width: 100%;
-        text-align: center;
-        padding: 10px;
-        bottom: 0;
-        background-color: #0a141d;
-        left: 0;
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 900px) {
+    .pie-pagina .grupo-1 {
+        grid-template-columns: 1fr; /* Cambiado a una sola columna en pantallas pequeñas */
+        margin: auto; /* Añadido para centrar en pantallas pequeñas */
     }
 
-    .pie-pagina .grupo-1 .box figure img{
-        width: 100px;
+    .pie-pagina .grupo-1 .box figure img {
+        width: 100%; /* Ajustado para ocupar el ancho completo */
+        max-width: 150px;
         transition: all 0.1s;
     }
 
-    .pie-pagina .grupo-1 .red-social a{
-        display: inline-block;
-        text-decoration: none;
-        width: 45px;
-        height: 45px;
-        line-height: 45px;
-        color: #fff;
-        margin-right: 10px;
-        background-color: #0d2033;
-        text-align: center;
-        transition: all 300ms ease;
-       
-    
+    .pie-pagina .grupo-1 .red-social {
+        margin-top: 20px; /* Añadido margen superior para separar las redes sociales */
     }
-
-
-
 }
+
+
 .banner{
     height: 500px;
     position: relative;

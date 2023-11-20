@@ -39,12 +39,19 @@
             </ul>
         </nav>
         {% if user.is_authenticated %}
+        {% if user.foto %}
             <a href="{% url 'infoU' %}" class="circulo-container">
-                <img class="circulo" src="{{user.foto.url}}" alt="Imagen de la persona" height="80px">
+              <img class="circulo" src="{{user.foto.url}}" alt="Imagen de la persona" height="80px">
             </a>
         {% else %}
-            <a href="{% url 'login' %}" class="btn"><button>Iniciar Sesion</button></a>
+        <a href="{% url 'infoU' %}" class="circulo-container">
+            <img class="circulo" src="{% static 'img/SinFotoDePerfil.jpg'%}" alt="Imagen de la persona" height="80px">
+          </a>
         {% endif %}
+        
+      {% else %}
+          <a href="{% url 'login' %}" class="btn"><button>Iniciar Sesion</button></a>
+      {% endif %}
 
 
 

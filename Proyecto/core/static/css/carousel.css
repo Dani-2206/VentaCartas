@@ -3,11 +3,6 @@
   margin-bottom: 0;
 }
 
-#myCarousel .carousel-control.left,
-#myCarousel .carousel-control.right {
-  background-image: none !important;
-}
-
 #myCarousel .carousel-control {
   color: #fff;
   top: 40%;

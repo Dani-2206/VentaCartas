@@ -45,9 +45,16 @@
         </ul>
     </nav>
     {% if user.is_authenticated %}
+      {% if user.foto %}
+          <a href="{% url 'infoU' %}" class="circulo-container">
+            <img class="circulo" src="{{user.foto.url}}" alt="Imagen de la persona" height="80px">
+          </a>
+      {% else %}
       <a href="{% url 'infoU' %}" class="circulo-container">
-        <img class="circulo" src="{{user.foto.url}}" alt="Imagen de la persona" height="80px">
-      </a>
+          <img class="circulo" src="{% static 'img/SinFotoDePerfil.jpg'%}" alt="Imagen de la persona" height="80px">
+        </a>
+      {% endif %}
+      
     {% else %}
         <a href="{% url 'login' %}" class="btn"><button>Iniciar Sesion</button></a>
     {% endif %}
@@ -122,33 +129,30 @@
     <div style="float: right; margin-right: 10px;">
       {% if user.is_authenticated %}
         {% include "Carro/widget.html" %}
-      {%else%}
-        <td colspan="3">
-          <div class="alert alert-danger text-center">Debe iniciar sesion</div>
-        </td>
-      {%endif%}
+      {% else %}
+        <div class="alert alert-danger text-center">Debe iniciar sesión</div>
+      {% endif %}
     </div>
 
     <div class="row">
-
       {% for producto in producto %}
-      <div class="col-md-4">
-        <a href="{% url 'infoCarta' producto.id_Producto%}" style="text-decoration: none;">
-          <div class="card" style="width: 100%; margin: 5px 5px; border: 2px; margin-right: 12px;">
-            <img src="{{ producto.imagen.url }}" class="card-img-top">
-            <div class="card-body text-center">
-              <h6 class="card-title">{{ producto.nombre_P }}</h6>
-              <p class="card-text"><span>$</span>{{ producto.precio }}</p>
-
+        <div class="col-md-4">
+          <a href="{% url 'infoCarta' producto.id_Producto%}" style="text-decoration: none;">
+            <div class="card" style="width: 100%; margin: 5px 5px; border: 2px; margin-right: 12px;">
+              <img src="{{ producto.imagen.url }}" class="card-img-top">
+              <div class="card-body text-center">
+                <h6 class="card-title">{{ producto.nombre_P }}</h6>
+                <p class="card-text"><span>$</span>{{ producto.precio }}</p>
+              </div>
+              <div class="card-footer text-center d-flex justify-content-center align-items-center">
+                <a href="{% url 'carro:agregar' producto.id_Producto %}" class="btn btn-sm btn-success">Agregar</a>
+              </div>
             </div>
-            <div class="card-footer text-center d-flex justify-content-center align-items-center">
-              <a href="{% url 'carro:agregar' producto.id_Producto %}" class="btn btn-sm btn-success">Agregar</a>
-
-            </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      {% endfor %}
     </div>
-    {% endfor %}
+    
 
   </div>
 
