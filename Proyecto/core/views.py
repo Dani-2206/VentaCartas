@@ -16,8 +16,10 @@ def is_admin(user):
 
 
 def index(request):
-    producto = Producto.objects.all()
-    return render (request, 'index.html',{'products':producto})
+    Mito = Producto.objects.filter(id_Tipo=1)
+    Yugi = Producto.objects.filter(id_Tipo=2)
+
+    return render (request, 'index.html',{'Mito':Mito,'yugi':Yugi})
 
 
 
@@ -209,19 +211,17 @@ def VerCompras(request):
 
 @user_passes_test(is_admin, login_url='index')
 def ModificarVenta(request, id_Venta):
-    producto = Venta.objects.get(id_Venta=id_Venta)
-    datos = {
-        'form': ProductVentas(instance=producto)
-    }
-    
+    productov = Venta.objects.get(id_Venta=id_Venta)
+
     if request.method == "POST":
-        formulario2 = ProductVentas(data=request.POST, instance=producto)
+        formulario2 = ProductVentas(data=request.POST, instance=productov)
         if formulario2.is_valid():
             formulario2.save()
             return redirect('VerCompras')
     else:
-        formulario2 = ProductVentas(instance=producto)
-    
-    datos['form'] = formulario2  
-    
+        formulario2 = ProductVentas(instance=productov)
+
+    datos = {'form': formulario2}
     return render(request, 'CRUD/Ventas/ModificarVentas.html', datos)
+
+

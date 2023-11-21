@@ -1,0 +1,14 @@
+
+.card {
+    width: 250px; /* Establece el ancho deseado para todas las tarjetas */
+    height: 400px; /* Establece la altura deseada para todas las tarjetas */
+    margin: 5px 5px;
+    border: 2px solid #000; /* Añade un color y un grosor de borde deseado */
+    margin-right: 12px;
+}
+.card img {
+    width: 100%; /* Asegúrate de que la imagen ocupe todo el ancho de la tarjeta */
+    height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+}
+
+

@@ -3,6 +3,8 @@ from django.forms import ModelForm
 from .models import *
 
 
+
+
 class ProductoForm(ModelForm):
     
 
@@ -76,96 +78,38 @@ class ProductoForm(ModelForm):
 
 
 class ProductVentas(ModelForm):
-        class Meta:
-        
-            model=Venta
-            fields=[
-                    'nombre',
-                    'nombre_usuario',
-                    'fecha',
-                    'email',
-                    'productos',
-                    'total',
-                    'direccion',
-                    'region',
-                    'estado']
-            labels={
-                'nombre': 'Ingrese el nombre',
-                'nombre_usuario': 'Ingrese el nombre del usuario',
-                'fecha': 'Fecha realizada la compra',
-                'email': 'Email',
-                'productos': 'Productos',
-                'total': 'Total',
-                'direccion': 'Ingrese la direccion',
-                'region': 'Ingrese la region',  # Corrected typo here
-                'estado': 'Ingrese el estado del producto'
-            }
+    ESTADOS_CHOICES = (
+        ('En tienda', 'En tienda'),
+        ('Enviado', 'Enviado'),
+        ('Entregado', 'Entregado'),
+    )
+
+    estado = forms.ChoiceField(choices=ESTADOS_CHOICES, widget=forms.Select(attrs={'class': 'controls'}))
 
 
-            widgets = {
-                'nombre': forms.TextInput(
-                    attrs={
-                        'class': 'controls',
-                        'id': 'NombrePersona',
-                        'name': 'NombrePersona',
-                        'placeholder': 'Ingrese el nombre de la persona'
-                    }
-                ),
-                'nombre_usuario': forms.TextInput(
-                    attrs={
-                        'class': 'controls',
-                        'id': 'nombreUsuario',
-                        'name': 'nombreUsuario',
-                        'placeholder': 'Ingrese el nombre del Usuario'
-                    }
-                ),
-                'email': forms.TextInput(
-                    attrs={
-                        'class': 'controls',
-                        'id': 'Email',
-                        'name': 'Email',
-                        'placeholder': 'Ingrese el email'
-                    }
-                ),
-                'productos': forms.Textarea(
-                    attrs={
-                        'class': 'controls',
-                        'id': 'Productos',
-                        'name': 'Productos',
-                        'placeholder': 'Productos'
-                    }
-                ),
-                'total': forms.TextInput(
-                    attrs={
-                        'class': 'controls',
-                        'id': 'Total',
-                        'name': 'Total',
-                        'placeholder': '1000',
-                        'required': True
-                    }
-                ),
-                'direccion': forms.TextInput(
-                    attrs={
-                        'class': 'controls',
-                        'id': 'direccion',
-                        'name': 'direccion',
-                        'placeholder': 'Ingrese la direccion'
-                    }
-                ),
-                'region': forms.TextInput(
-                    attrs={
-                        'class': 'controls',
-                        'id': 'region',
-                        'name': 'region',
-                        'placeholder': 'Ingrese la region'
-                    }
-                ),
-                'estado': forms.TextInput(
-                    attrs={
-                        'class': 'controls',
-                        'id': 'estado',
-                        'name': 'estado',
-                        'placeholder': 'Ingrese el estado del producto'
-                    }
-                ),
-            }
+    class Meta:
+        model = Venta
+        fields = [
+            'nombre',
+            'nombre_usuario',
+            'fecha',
+            'email',
+            'productos',
+            'total',
+            'direccion',
+            'region',
+            'estado'
+        ]
+
+        # Resto del código Meta...
+
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'controls', 'id': 'NombrePersona', 'name': 'NombrePersona', 'placeholder': 'Ingrese el nombre de la persona'}),
+            'nombre_usuario': forms.TextInput(attrs={'class': 'controls', 'id': 'nombreUsuario', 'name': 'nombreUsuario', 'placeholder': 'Ingrese el nombre del Usuario'}),
+            'email': forms.TextInput(attrs={'class': 'controls', 'id': 'Email', 'name': 'Email', 'placeholder': 'Ingrese el email'}),
+            'productos': forms.Textarea(attrs={'class': 'controls', 'id': 'Productos', 'name': 'Productos', 'placeholder': 'Productos'}),
+            'total': forms.TextInput(attrs={'class': 'controls', 'id': 'Total', 'name': 'Total', 'placeholder': '1000', 'required': True}),
+            'direccion': forms.TextInput(attrs={'class': 'controls', 'id': 'direccion', 'name': 'direccion', 'placeholder': 'Ingrese la direccion'}),
+            'region': forms.TextInput(attrs={'class': 'controls', 'id': 'region', 'name': 'region', 'placeholder': 'Ingrese la region'}),
+            'estado': forms.Select(attrs={'class': 'controls'}),
+        }
