@@ -13,13 +13,14 @@
     margin: auto;
     margin-top: 50px;
     background: #000407;
-    padding: 50px;
+    padding: 30px;
     border-radius: 4px;
     font-family: 'calibri';
+    margin-bottom: 30px;
     color: white;
     box-shadow: 7px 13px 37px #000;
-    height:150vh;
-    
+    height: 200vh;
+    /* Ajusta según tu preferencia */
 }
 
 .form-register h4 {
@@ -29,7 +30,7 @@
 
 .controls {
     width: 100%;
-    background: white;
+    background: rgb(237, 245, 12);
     padding: 8px;
     border-radius: 4px;
     text-align: left;
@@ -41,4 +42,23 @@
 
 .form-group {
     margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .form-register {
+        width: 80%;
+        max-width: 800px;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background: #000407;
+        padding: 50px;
+        border-radius: 4px;
+        font-family: 'calibri';
+        color: white;
+        box-shadow: 7px 13px 37px #000;
+        height: 220vh;
+        /* Ajusta según tu preferencia */
+    }
 }
