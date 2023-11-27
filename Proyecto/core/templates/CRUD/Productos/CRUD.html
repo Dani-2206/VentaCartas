@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
     <link rel="stylesheet" href="'{% static 'css/bootstrap.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" type="text/css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
    
     <title>CRUD</title>
@@ -115,13 +116,12 @@
         <table border="2">
             <thead>
                 <tr>
-                    <th style="padding: 12px;">id Producto</th>
-                    <th style="padding: 12px;">nombre Producto</th>
-                    <th style="padding: 12px;">Descripcion</th>
-                    <th style="padding: 12px;">Imagen</th>
-                    <th style="padding: 12px;">Categoria</th>
-                    <th style="padding: 12px;">Tipo</th>
-                    <th style="padding: 12px;">Modificar</th>
+                    <th >id Producto</th>
+                    <th>nombre Producto</th>
+                    <th >Imagen</th>
+                    <th >Categoria</th>
+                    <th >Tipo</th>
+                    <th>Modificar</th>
                 </tr>
             </thead>
 
@@ -132,8 +132,7 @@
                     
                     <td>{{ve.id_Producto}}</td>
                     <td>{{ve.nombre_P}}</td>
-                    <td>{{ve.descripcion}}</td>
-                    <td><img src="{{ve.imagen.url}}" alt="" WIDTH="100"  HEIGHT="100"></td>
+                    <td><img src="{{ve.imagen.url}}" alt="" WIDTH="70"  HEIGHT="70"></td>
                     <td>{{ve.id_Categoria}}</td>
                     <td>{{ve.id_Tipo}}</td>
                     <td>
@@ -154,10 +153,10 @@
     </div>
     <br>
     <div>
-        <button class="boton1" ><a href="{% url 'productform' %}" style="text-decoration: none;">Agregar</a></button>    
+        <button><a href="{% url 'productform' %}" style="text-decoration: none;">Agregar</a></button>  
         <button><a href="{% url 'VerCompras' %}" style="text-decoration: none;">Modificar Compras</a></button>
         <button><a href="{% url 'VerEventos' %}" style="text-decoration: none;">Modificar Evento</a></button>
-        
+          
     </div>
     
     <br>

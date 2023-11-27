@@ -11,7 +11,8 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'css/buscador.css' %}" type="text/css">
-  <link rel="stylesheet" href="{% static 'CSS/carousel.css' %}" type="text/css">
+  
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -89,14 +90,13 @@
     <table border="2" style="background-color: white;">
         <thead>
             <tr>
-                <th style="padding: 12px;">id Evento</th>
-                <th style="padding: 12px;">Nombre Evento</th>
-                <th style="padding: 12px;">Descripcion</th>
-                <th style="padding: 12px;">Fecha</th>
-                <th style="padding: 12px;">Hora</th>
-                <th style="padding: 12px;">Precio</th>
-                <th style="padding: 12px;">Foto</th>
-                <th style="padding: 12px;">Modificar</th>
+                <th >id Evento</th>
+                <th >Nombre Evento</th>
+                <th >Descripcion</th>
+                <th>Fecha</th>
+                <th >Hora</th>
+                <th >Precio</th>
+                <th >Modificar</th>
             </tr>
         </thead>
         <tbody>
@@ -108,11 +108,6 @@
                     <td>{{ ve.fecha }}</td>
                     <td>{{ ve.hora }}</td>
                     <td>{{ ve.precio }}</td>
-                    {% if ve.foto %}
-                      <td><img src="{{ ve.foto.url }}" alt="" WIDTH="100" HEIGHT="100"></td>
-                    {% else %}
-                      <td></td>
-                    {%endif%}
                     <td>
                       <button class="boton1"><a href="{% url 'modificar_evento' ve.id_evento %}">Modificar</a></button>
                       <button class="boton2"><a href="{% url 'eliminar_evento' ve.id_evento %}">Eliminar</a>

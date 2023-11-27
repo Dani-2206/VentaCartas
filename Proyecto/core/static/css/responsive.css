@@ -1,0 +1,41 @@
+body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.row {
+    margin: 12px auto; /* Center the table and add margin to the sides */
+    overflow-x: auto; /* Enable horizontal scroll for smaller screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    margin: 12px auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.boton1, .boton2 {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 2px;
+}
+@media screen and (max-width: 768px) {
+    th, td {
+        font-size: 12px;
+        padding: 0;
+    }
+    .boton1,
+    .boton2 {
+        padding: 1px 2px; /* Further reduce padding for smaller screens */
+        font-size: 8px; /* Adjust font size for smaller screens */
+    }
+}

@@ -89,10 +89,17 @@ body{
     font-size: 30px;
 }
 
-.titulo{
-    padding: 12px;
-    justify-content: center;
+
+.titulo {
+    color: #fff; /* Color del texto */
+    text-align: center; /* Alineación del texto */
+    
+    background-color: #333;
 }
+div h3{
+    color: wheat;
+}
+
 
 @media (max-width:700px){
     .logo{
