@@ -147,3 +147,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# Configuración del servidor SMTP de Gmail
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+
+# Tu dirección de correo electrónico de Gmail y la contraseña de la cuenta
+EMAIL_HOST_USER = "nvdrstore@gmail.com"
+EMAIL_HOST_PASSWORD = "obujvqijdgalanhz"
+

@@ -3,6 +3,7 @@ def importe_total_carro(request):
     total_trans = 0
     productos_string = ""
     cadena_formateada="0" 
+    lista_productos = []
 
     if request.user.is_authenticated:
         if "carro" in request.session:
@@ -12,7 +13,13 @@ def importe_total_carro(request):
                 # Obtener el nombre del producto y agregarlo a la cadena
                 nombre_producto = value['nombre']
                 cantidad=value['cantidad']
-                productos_string += f"{nombre_producto} {cantidad}, "
+                productos_string += f"{nombre_producto} {cantidad},"
+                
+                lista_productos.append({
+                    "nombre": nombre_producto,
+                    "cantidad": cantidad,
+                    "precio": value["precio"],
+                })
 
             # Eliminar la coma adicional al final de la cadena
             productos_string = productos_string.rstrip(', ')
@@ -24,4 +31,4 @@ def importe_total_carro(request):
 
 
     return {"importe_total_carro": total,"total_formateado":cadena_formateada,"valor_total": total_trans,
-            "lista_producto": productos_string}
+            "lista_producto": productos_string,"carrito": lista_productos}

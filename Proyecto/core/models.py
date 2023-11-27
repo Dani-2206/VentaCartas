@@ -1,10 +1,5 @@
 from django.db import models
 
-ESTADOS_CHOICES = (
-        ('En tienda', 'En tienda'),
-        ('Enviado', 'Enviado'),
-        ('Entregado', 'Entregado'),
-)
 
 class Tipo(models.Model):
     id_Tipo=models.AutoField(primary_key=True,verbose_name="ID de categoria")
@@ -38,7 +33,6 @@ class Producto(models.Model):
 
 class Venta(models.Model):
 
-
     id_Venta = models.AutoField(primary_key=True, verbose_name="ID del producto")
     nombre=models.CharField(verbose_name="Nombre DEl comprador", max_length=20)
     nombre_usuario=models.CharField(verbose_name="Nombre DEl comprador", max_length=20,default="")
@@ -53,4 +47,16 @@ class Venta(models.Model):
     def __str__(self):
         return self.nombre
 
+
+
+class Evento(models.Model):
+    id_evento = models.AutoField(primary_key=True, verbose_name="ID del producto")
+    nombre=models.CharField(verbose_name="Nombre del evento", max_length=20)
+    descripcion= models.TextField(verbose_name="Descripción", default="sin Descripcion")
+    fecha=models.CharField(verbose_name="Fecha evento", max_length=20)
+    hora=models.CharField(verbose_name="Hora", max_length=20, default="00:00")
+    precio= models.IntegerField(verbose_name='Precio del evento')
+    foto = models.ImageField(verbose_name="Foto de la carta", upload_to='productos/',blank=True)
+    def __str__(self):
+        return self.nombre
 

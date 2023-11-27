@@ -22,7 +22,11 @@ urlpatterns=[
     path('Ventas',VerCompras, name="VerCompras"),
     path('venta/<int:id_Venta>/', ModificarVenta, name="ModificarVenta"),
     path('torneo',torneo,name='torneo'),
-   
+    path('VerEventos',VerEventos,name='VerEventos'),
+    path('AgregarEvento',AgregarEvento,name="AgregarEvento"),
+    path('modificar_evento/<int:id_evento>/', ModificarEvento, name='modificar_evento'),
+    path('eliminar_evento/<int:id>/', EliminarEvento, name='eliminar_evento'),
+    
     
 
 

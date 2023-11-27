@@ -1,7 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import ProductoForm,ProductVentas
+from .forms import *
 from django.contrib.auth.decorators import user_passes_test
 from django.http import JsonResponse
+from django.template.loader import get_template
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
 import json
 from django.db.models import Q
 
@@ -157,32 +160,49 @@ def pago_realizado(request):
             nombre_comprador = data.get('comprador', '') # nombre del paypal
             fecha_compra = data.get('fecha', '')  #fecha de la compra
             status_compra = data.get('status', '') #status de la compra
+            trans_id= data.get('trans_id', '')
             productos=importe_total_carro(request)
             lista_productos=productos["lista_producto"] # productos que eligio
             total=productos["importe_total_carro"] # total (dinero)
+            
+
 
             nombre_usuario = request.user.username # nombre de usuario
             email=request.user.email # email pero de la pagina
-            direccion = request.user.direccion
-            region = request.user.region
-
-
-
-
-            print(f"Nombre del comprador: {nombre_comprador}")
-            print(f"Usuario: {nombre_usuario}")
-            print(f"La fecha de la compra: {fecha_compra}")
-            print(f"Email: {email}")
-            print(f"Status: {status_compra}")
-            print(f"Lista Productos: {lista_productos}")
-            print(f"Lista Productos: {total}")
+            direccion = request.user.direccion # direccion
+            region = request.user.region #region de la persona
 
 
             if status_compra == "COMPLETED":
                 print("El status de la compra está bien")
                 venta = Venta(nombre=nombre_comprador,nombre_usuario=nombre_usuario ,
-                              fecha=fecha_compra, email=email,productos=lista_productos,total=total,direccion=direccion,region=region)
+                fecha=fecha_compra, email=email,productos=lista_productos,total=total,direccion=direccion,region=region)
                 venta.save()
+
+
+                email=request.user.email
+                print(email)
+
+                template = get_template('usuario/email.html')
+                content = template.render({
+                    'email': email,
+                    'carrito': productos["carrito"],
+                    'trans':trans_id,
+                    'total':total
+                })
+
+                msg = EmailMultiAlternatives(
+                    'Gracias por tu compra',
+                    'Hola, te enviamos un correo con tu factura',
+                    settings.EMAIL_HOST_USER,
+                    [email]
+                )
+
+                msg.attach_alternative(content, 'text/html')
+                msg.send()
+
+
+
                 carro = Carro(request)
                 carro.limpiar_carro()
 
@@ -229,7 +249,53 @@ def ModificarVenta(request, id_Venta):
 def evento(request):
     return render (request, 'core/evento.html')
 
+
+@user_passes_test(is_admin, login_url='index')
+def VerEventos(request):
+    Eventos=Evento.objects.all()
+    
+    return render(request, 'CRUD/Eventos/VerEventos.html',{'evento':Eventos})
+
+@user_passes_test(is_admin, login_url='index')
+def AgregarEvento(request):
+    if request.method == 'POST':
+        formulario = ProductEventos(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('VerEventos') 
+    else:
+        formulario = ProductEventos()
+
+    return render(request, 'CRUD/Eventos/AgregarEventos.html', {'formulario_c': formulario})
+
+
+@user_passes_test(is_admin, login_url='index')
+def ModificarEvento(request,id_evento):
+    evento = Evento.objects.get(id_evento=id_evento)
+    if request.method == "POST":
+        formulario = ProductEventos(data=request.POST, instance=evento)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('VerEventos')
+    else:
+        formulario = ProductEventos(instance=evento)
+
+    datos = {'form': formulario}
+    return render(request, 'CRUD/Eventos/ModificarEventos.html', datos)
+
+
+def EliminarEvento(request,id):
+    Eventos= Evento.objects.get(id_evento=id)
+    Eventos.delete()
+    return redirect('Crud')
+
+
 def torneo(request):
     return render (request, 'core/torneomitos.html')
+
+
+
+
+
 
 

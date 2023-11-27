@@ -81,6 +81,7 @@
             var fecha = detalles.create_time;
             var email = detalles.payer.email_address;
             var status = detalles.status;
+            var trans_id = detalles.id;
 
 
             fetch(url, {
@@ -93,7 +94,9 @@
                     'comprador': nombreComprador,
                     'fecha':fecha,
                     'email':email,
-                    'status':status
+                    'status':status,
+                    'trans_id':trans_id
+
                 }),
             })
             .then(response => response.json())

@@ -62,15 +62,7 @@ class ProductoForm(ModelForm):
 
             'imagen': forms.ClearableFileInput(attrs={'class': 'controls'}),
 
-            'precio':forms.TextInput(
-                attrs={
-                    'class': 'controls',
-                    'id': 'precio',
-                    'name': 'precio',
-                    'placeholder': '1000',
-                    'required': True
-                }
-            ),
+            'precio': forms.NumberInput(attrs={'class': 'controls', 'id': 'PrecioEvento', 'name': 'PrecioEvento', 'placeholder': 'Ingrese el precio del Producto'}),
 
         
         }
@@ -101,7 +93,7 @@ class ProductVentas(ModelForm):
             'estado'
         ]
 
-        # Resto del código Meta...
+
 
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'controls', 'id': 'NombrePersona', 'name': 'NombrePersona', 'placeholder': 'Ingrese el nombre de la persona'}),
@@ -112,4 +104,38 @@ class ProductVentas(ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'controls', 'id': 'direccion', 'name': 'direccion', 'placeholder': 'Ingrese la direccion'}),
             'region': forms.TextInput(attrs={'class': 'controls', 'id': 'region', 'name': 'region', 'placeholder': 'Ingrese la region'}),
             'estado': forms.Select(attrs={'class': 'controls'}),
+        }
+
+
+class ProductEventos(ModelForm):
+    
+    class Meta:
+        model = Evento
+        fields = [
+            'nombre',
+            'descripcion',
+            'fecha',
+            'hora',
+            'precio',
+            'foto',
+        ]
+        labels = {
+            'nombre': "Ingrese el nombre del evento",
+            'descripcion':"Ingrse una descripcion",
+            'fecha': "Ingrese la fecha del evento",
+            'hora':'ingrese la hora',
+            'precio': "Ingrese el precio del Evento",
+            'foto': "Ingrese una foto",
+        }
+
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'controls', 'id': 'NombrePersona', 'name': 'NombrePersona', 'placeholder': 'Ingrese el nombre del evento'}),
+            'descripcion': forms.Textarea(attrs={'class': 'controls', 'id': 'descripcion', 'name': 'descripcion', 'placeholder': 'descripcion'}),
+            'fecha': forms.DateTimeInput(attrs={'class': 'controls', 'id': 'FechaEvento', 'name': 'FechaEvento', 'placeholder': 'Ingrese la fecha del evento'}),
+            'hora': forms.TimeInput(
+            attrs={'class': 'controls', 'placeholder': 'Seleccione la hora'},
+            format='%H:%M',  # Formato de hora de 24 horas
+            ),
+            'precio': forms.NumberInput(attrs={'class': 'controls', 'id': 'PrecioEvento', 'name': 'PrecioEvento', 'placeholder': 'Ingrese el precio del evento'}),
+            'foto': forms.ClearableFileInput(attrs={'class': 'controls', 'id': 'FotoEvento', 'name': 'FotoEvento'}),
         }
