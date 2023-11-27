@@ -39,7 +39,7 @@
 <body style="background-image:url('{% static 'img/kaibayugi.jpg' %}');">
   <header class="header">
     <div class="logo">
-      <img src="{% static 'img/logo.png'%}" alt="logo de la marca">
+      <img src="{% static 'img/nvdrstore.png'%}" alt="logo de la marca">
     </div>
     <form class="form">
       <button>
@@ -61,7 +61,7 @@
         <li><a href="#">Servicios</a></li>
         <li><a href="{% url 'dana' %}">Cartas</a></li>
         <li><a href="#">Accesorios</a></li>
-        <li><a href="#">Eventos</a></li>
+        <li><a href="{% url 'eventos' %}">Eventos</a></li>
 
       </ul>
     </nav>
@@ -84,7 +84,7 @@
   </header>
 
   <div class="titulo"></div>>
-  <h3 style="color: yellow;">Bienvenido {{user.username | upper}} a NVDR store</h3>
+  <h3  style="color: yellow;">Bienvenido {{user.username | upper}} a NVDR store</h3>
 
 
 
@@ -189,7 +189,7 @@
       <div class="box">
         <figure>
           <a href="{% url 'index'%}">
-            <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
+            <img src="{% static 'img/nvdrstore.png'%}" class="logo2" alt="Logo de SLee Dw">
           </a>
 
         </figure>

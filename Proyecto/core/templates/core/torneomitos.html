@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+   
+    <!DOCTYPE html>
+<html lang="en">
 
 <head>
     {%load static%}
@@ -14,10 +18,10 @@
     <title>Document</title>
 </head>
 
-<body style="background-image:url('{% static 'img/domoniomagma.png' %}');">
+<body style="background-image:url('{% static 'img/' %}');">
     <header class="header">
         <div class="logo">
-            <img src="{% static 'img/nvdrstore.png'%}" alt="logo de la marca">
+            <img src="{% static 'img/logo.png'%}" alt="logo de la marca">
         </div>
         <form class="form">
             <button>
@@ -63,65 +67,14 @@
 
 
     </header>
-    <section class="post-list">
-        <div class="content">
-            <article class="post">
-                <div class="post-header">
-                    <div class="post-imagen-2">
-                        <div class="post-body">
-                            <span>5 de septiembre 2000</span>
-                            <img class="imagenes" src="{% static 'img/fergus.webp'%}" width="250px" height="400px">
-                            <h2>Torneo de Principiantes de Mitos Y Leyendas</h2>
-                            <p></p>
-                            <a href="{% url 'torneo' %}" class="post-link">Leer Mas.......</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post-header">
-                    <div class="post-imagen-3">
-                        <div class="post-body">
-                            <span>5 de septiembre 2000</span>
-                            <h2>Torneo de Yugioh Formato Avanzado</h2>
-                            <p></p>
-                            <a href="{% url 'login' %}" class="post-link">Leer Mas.......</a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post-header">
-                    <div class="post-imagen-2">
-                        <div class="post-body">
-                            <span>5 de septiembre 2000</span>
-                            <h2>Torneo de Principiantes de Mitos Y Leyendas</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi necessitatibus nobis
-                                dolor corporis porro, atque vel aspernatur fuga quidem praesentium a molestias similique
-                                excepturi. Vitae?</p>
-                            <a href="{% url 'login' %}" class="post-link">Leer Mas.......</a>
-                        </div>
-        </div>
-    </section>
-    </div>
-    </section>
-    </div>
-    </section>
-
-   
-    
-    
-
-
-
-
+</head>
+<body>
     <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
                 <figure>
                     <a href="{% url 'index'%}">
-                        <img src="{% static 'img/nvdrstore.png'%}" class="logo2" alt="Logo de SLee Dw">
+                        <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
                     </a>
 
                 </figure>
@@ -150,4 +103,9 @@
     </footer>
 </body>
 
+</html>
+
+
+    
+</body>
 </html>

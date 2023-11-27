@@ -70,6 +70,8 @@ def eventos(request):
 
 
 
+
+
 def infoCarta(request, id):
     producto = get_object_or_404(Producto, id_Producto=id)
     return render(request, 'core/infoCarta.html', {'carta': producto})
@@ -223,5 +225,11 @@ def ModificarVenta(request, id_Venta):
 
     datos = {'form': formulario2}
     return render(request, 'CRUD/Ventas/ModificarVentas.html', datos)
+
+def evento(request):
+    return render (request, 'core/evento.html')
+
+def torneo(request):
+    return render (request, 'core/torneomitos.html')
 
 

@@ -21,6 +21,10 @@ urlpatterns=[
     path('infoU',infoU, name="infoU"),
     path('Ventas',VerCompras, name="VerCompras"),
     path('venta/<int:id_Venta>/', ModificarVenta, name="ModificarVenta"),
+    path('torneo',torneo,name='torneo'),
+   
+    
+
 
 
 
