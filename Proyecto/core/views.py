@@ -77,6 +77,7 @@ def eventos(request):
 
 def infoCarta(request, id):
     producto = get_object_or_404(Producto, id_Producto=id)
+    print(producto)
     return render(request, 'core/infoCarta.html', {'carta': producto})
 
 
