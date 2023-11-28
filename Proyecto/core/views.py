@@ -21,8 +21,10 @@ def is_admin(user):
 def index(request):
     Mito = Producto.objects.filter(id_Tipo=1)
     Yugi = Producto.objects.filter(id_Tipo=2)
+    JuegoMesa = Producto.objects.filter(id_Categoria=8)
+    
 
-    return render (request, 'index.html',{'Mito':Mito,'yugi':Yugi})
+    return render (request, 'index.html',{'Mito':Mito,'yugi':Yugi, 'JuegoMesa' :JuegoMesa})
 
 
 
