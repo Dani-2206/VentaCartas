@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'css/buscador.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'CSS/carousel.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'CSS/Carrusel.css' %}" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -83,10 +84,58 @@
 
   </header>
 
-  <div class="titulo" style="margin: 12px auto;  background-color: #333;">
-    <h3 style="margin: 12px 12px;color: wheat;">Bienvenido {{user.username | upper}} a NVDR store</h3>
+  <div class="titulo"></div>>
+  <h3  style="color: yellow;">Bienvenido {{user.username | upper}} a NVDR store</h3>
+
+  <div id="masterhead">
+    <div class="container">
+      <div class="slideshow">
+        <div id="slideshow" class="carousel slide" data-ride="Carrusel">
+          <div class="Carrusel-inner">
+            <div class="item active">
+              <img class="img-responsive" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First Slide">
+              <div class="container">
+                <div class="Carrusel-caption">
+                  <h1>SlideShow 1</h1>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img class="img-responsive" src="data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second Slide">
+              <div class="container">
+                <div class="Carrusel-caption">
+                  <h1>SlideShow 2</h1>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img class="img-responsive" src="data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+              <div class="container">
+                <div class="Carrusel-caption">
+                  <h1>SlideShow 3</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="controlsBlock">
+            <div class="controls">
+              <a class="left carousel-control" href="#slideshow" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+              <a class="right carousel-control" href="#slideshow" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+              <div class="carousel-indicators">
+                <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+                <li data-target="#slideshow" data-slide-to="1"></li>
+                <li data-target="#slideshow" data-slide-to="2"></li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
+
+
+
+
 
 
 
@@ -96,7 +145,6 @@
     <img src="{% static 'img/Mitos_y_leyendas.png' %}" alt="">
   </a>
 
-<!-- index.html -->
 <div class="container">
     <div class="well">
       <div id="myCarousel" class="carousel slide">
@@ -133,7 +181,7 @@
       </div>
   </div>
 
-  <!-- Otras secciones del código -->
+ 
 
 </div>
 
@@ -158,7 +206,7 @@
                 <div class="caption">
                   <h3>{{ producto.nombre_P }}</h3>
                   <p>${{ producto.precio }}</p>
-                  <!-- Agrega otros detalles según sea necesario -->
+
                 </div>
                 <div class="card-footer text-center d-flex justify-content-center align-items-center">
                   <a href="{% url 'carro:agregar' producto.id_Producto %}" class="btn btn-sm btn-success">Agregar</a>
