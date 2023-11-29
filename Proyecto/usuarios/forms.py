@@ -131,3 +131,10 @@ class FormularioUsuario(UserCreationForm):
             ),
             'foto': forms.ClearableFileInput(attrs={'class': 'controls'}),  # Corrección aquí: de 'imagen' a 'foto'
         }
+
+
+        def clean_telefono(self):
+            telefono = self.cleaned_data.get('telefono')
+            if telefono is not None and len(str(telefono)) != 9:
+                raise forms.ValidationError("El número de teléfono debe tener 9 dígitos.")
+            return telefono

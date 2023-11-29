@@ -149,6 +149,7 @@ def Modificar(request, id):
         if formulario2.is_valid():
            formulario2.save()
            return redirect('Crud')
+
     else:
         formulario2=ProductoForm()
     

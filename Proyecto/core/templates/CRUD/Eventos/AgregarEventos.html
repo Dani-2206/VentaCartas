@@ -68,33 +68,50 @@
                 <div class="form-group">
                     <label for="{{ formulario_c.nombre.id_for_label }}">{{ formulario_c.nombre.label }}</label>
                     {{ formulario_c.nombre }}
+                    {% if formulario_c.nombre.errors %}
+                        <p class="text-danger">{{ formulario_c.nombre.errors.0 }}</p>
+                    {% endif %}
                 </div>
 
                 <div class="form-group">
                     <label for="{{ formulario_c.descripcion.id_for_label }}">{{ formulario_c.descripcion.label }}</label>
                     {{ formulario_c.descripcion }}
+                    {% if formulario_c.descripcion.errors %}
+                        <p class="text-danger">{{ formulario_c.descripcion.errors.0 }}</p>
+                    {% endif %}
                 </div>
 
                 <div class="form-group">
                   <label for="{{ formulario_c.fecha.id_for_label }}">Fecha del evento</label>
                   <input type="date" class="controls" id="{{ formulario_c.fecha.id_for_label }}"
                          name="{{ formulario_c.fecha.name }}" placeholder="Seleccione la fecha del evento">
+                  {% if formulario_c.fecha.errors %}
+                      <p class="text-danger">{{ formulario_c.fecha.errors.0 }}</p>
+                  {% endif %}
                 </div>
 
                 <div class="form-group">
                     <label for="{{ formulario_c.hora.id_for_label }}">{{ formulario_c.hora.label }}</label>
                     {{ formulario_c.hora }}
+                    {% if formulario_c.hora.errors %}
+                        <p class="text-danger">{{ formulario_c.hora.errors.0 }}</p>
+                    {% endif %}
                 </div>
-
 
                 <div class="form-group">
                     <label for="{{ formulario_c.precio.id_for_label }}">{{ formulario_c.precio.label }}</label>
                     {{ formulario_c.precio }}
+                    {% if formulario_c.precio.errors %}
+                        <p class="text-danger">{{ formulario_c.precio.errors.0 }}</p>
+                    {% endif %}
                 </div>
 
                 <div class="form-group">
                     <label for="{{ formulario_c.foto.id_for_label }}">{{ formulario_c.foto.label }}</label><br>
                     {{ formulario_c.foto }}
+                    {% if formulario_c.foto.errors %}
+                        <p class="text-danger">{{ formulario_c.foto.errors.0 }}</p>
+                    {% endif %}
                 </div>
 
                 <div class="form-group text-center">
@@ -105,6 +122,7 @@
         </section>
     </div>
 </form>
+
 <br><br><br>
 
 

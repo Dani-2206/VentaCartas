@@ -60,7 +60,7 @@
 
 
 
-    <div class="container">
+      <div class="container">
         <div class="form-container card-body">
             <section class="form-register">
                 <div class="form-container">
@@ -71,26 +71,51 @@
                         <div class="form-group">
                             <label for="{{form.nombre.id_for_label}}">{{form.nombre.label}}</label>
                             {{form.nombre}}
+                            {% if form.nombre.errors %}
+                                <div class="text-danger">
+                                    {{ form.nombre.errors.0 }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.descripcion.id_for_label}}">{{form.descripcion.label}}</label>
                             {{form.descripcion}}
+                            {% if form.descripcion.errors %}
+                                <div class="text-danger">
+                                    {{ form.descripcion.errors.0 }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.fecha.id_for_label}}">{{form.fecha.label}}</label>
                             {{form.fecha}}
+                            {% if form.fecha.errors %}
+                                <div class="text-danger">
+                                    {{ form.fecha.errors.0 }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.precio.id_for_label}}">{{form.precio.label}}</label>
                             {{form.precio}}
+                            {% if form.precio.errors %}
+                                <div class="text-danger">
+                                    {{ form.precio.errors.0 }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.foto.id_for_label}}">{{form.foto.label}}</label><br>
                             {{form.foto}}
+                            {% if form.foto.errors %}
+                                <div class="text-danger">
+                                    {{ form.foto.errors.0 }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group text-center">
@@ -101,6 +126,8 @@
                 </div>
             </section>
         </div>
+    </div>
+    
     </div>
     <div>
       

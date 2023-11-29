@@ -59,70 +59,139 @@
     
       </header>
 
-    <div class="container">
+      <div class="container">
         <div class="form-container card-body">
             <section class="form-register">
-                <div  class="form-container">
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                   
-                        
-                        <h4 class="titulo"> Registro de usuario</h4>
+                <div class="form-container">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                       
+                        <h4 class="titulo">Registro de usuario</h4>
+    
+                        <!-- Mostrar errores de formulario -->
+
+    
+                        <!-- Campo: Nombre de Usuario -->
                         <div class="form-group">
                             <label for="{{ form.username.id_for_label }}" class="controls">Nombre de Usuario</label>
                             {{ form.username }}
+                            {% if form.username.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.username.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
-
+    
+                        <!-- Campo: Nombre -->
                         <div class="form-group">
-                            <label for="{{ form.nombres.id_for_label }}"class="controls">Nombre</label>
+                            <label for="{{ form.nombres.id_for_label }}" class="controls">Nombre</label>
                             {{ form.nombres }}
+                            {% if form.nombres.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.nombres.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
+    
+                        <!-- Campo: Apellido -->
                         <div class="form-group">
-                            <label for="{{ form.apellidos.id_for_label }}"class="controls">Apellido</label>
+                            <label for="{{ form.apellidos.id_for_label }}" class="controls">Apellido</label>
                             {{ form.apellidos }}
+                            {% if form.apellidos.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.apellidos.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
+    
+                        <!-- Campo: Correo Electrónico -->
                         <div class="form-group">
-                            <label for="{{ form.email.id_for_label }}"class="controls">Correo Electrónico</label>
+                            <label for="{{ form.email.id_for_label }}" class="controls">Correo Electrónico</label>
                             {{ form.email }}
+                            {% if form.email.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.email.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
-                        <!-- Agrega más campos aquí -->
+    
+                        <!-- Campo: Región -->
                         <div class="form-group">
-                            <label for="{{ form.region.id_for_label }}"class="controls">Región</label>
+                            <label for="{{ form.region.id_for_label }}" class="controls">Región</label>
                             {{ form.region }}
+                            {% if form.region.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.region.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
-
+    
+                        <!-- Campo: Dirección -->
                         <div class="form-group">
-                            <label for="{{ form.direccion.id_for_label }}"class="controls">Dirección</label>
+                            <label for="{{ form.direccion.id_for_label }}" class="controls">Dirección</label>
                             {{ form.direccion }}
+                            {% if form.direccion.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.direccion.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
-
-
+    
+                        <!-- Campo: Teléfono -->
                         <div class="form-group">
-                            <label for="{{ form.telefono.id_for_label }}"class="controls">Telefono</label>
+                            <label for="{{ form.telefono.id_for_label }}" class="controls">Teléfono</label>
                             {{ form.telefono }}
+                            {% if form.telefono.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.telefono.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
-
+    
+                        <!-- Campo: Foto -->
                         <div class="form-group">
-                            <label for="{{ form.foto.id_for_label }}"class="controls">Foto</label>
+                            <label for="{{ form.foto.id_for_label }}" class="controls">Foto</label>
                             {{ form.foto }}
+                            {% if form.foto.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.foto.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
-                        
+    
+                        <!-- Campo: Contraseña -->
                         <div class="form-group">
-                            <label for="{{ form.password1.id_for_label }}"class="controls">Contraseña</label>
+                            <label for="{{ form.password1.id_for_label }}" class="controls">Contraseña</label>
                             {{ form.password1 }}
+                            {% if form.password1.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.password1.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
+    
+                        <!-- Campo: Confirmación de Contraseña -->
                         <div class="form-group">
-                            <label for="{{ form.password2.id_for_label }}"class="controls">Contraseña </label>
+                            <label for="{{ form.password2.id_for_label }}" class="controls">Confirmación de Contraseña</label>
                             {{ form.password2 }}
+                            {% if form.password2.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ form.password2.errors|striptags }}
+                                </div>
+                            {% endif %}
                         </div>
-
-                        <a href="{% url 'index' %}">ir al home</a>
-                        <a href="{% url 'login'%}" >Login</a>
-                        <input type="submit" values="enviar" name="enviar">
-                        
-                </form>
-         </div>
+    
+                        <a href="{% url 'index' %}">Ir al home</a>
+                        <a href="{% url 'login' %}">Login</a>
+                        <input type="submit" value="Enviar" name="enviar">
+                    </form>
+                </div>
+            </section>
+        </div>
     </div>
+
+
+  
 </section>
 
 

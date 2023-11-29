@@ -58,7 +58,7 @@
     
       </header>
 
-    <div class="container">
+      <div class="container">
         <div class="form-container card-body">
             <section class="form-register">
                 <div class="form-container">
@@ -69,32 +69,72 @@
                         <div class="form-group">
                             <label for="{{form.id_Producto.id_for_label}}">{{form.id_Producto.label}}</label>
                             {{form.id_Producto}}
+                            {% if form.id_Producto.errors %}
+                                <div class="text-danger">
+                                    {{ form.id_Producto.errors }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.nombre_P.id_for_label}}">{{form.nombre_P.label}}</label>
                             {{form.nombre_P}}
+                            {% if form.nombre_P.errors %}
+                                <div class="text-danger">
+                                    {{ form.nombre_P.errors }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.descripcion.id_for_label}}">{{form.descripcion.label}}</label>
                             {{form.descripcion}}
+                            {% if form.descripcion.errors %}
+                                <div class="text-danger">
+                                    {{ form.descripcion.errors }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.imagen.id_for_label}}">{{form.imagen.label}}</label><br>
                             <img src="{{form.imagen.url}}" alt="Imagen actual" class="img-thumbnail" style="max-width: 100%;">
                             {{form.imagen}}
+                            {% if form.imagen.errors %}
+                                <div class="text-danger">
+                                    {{ form.imagen.errors }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.precio.id_for_label}}">{{form.precio.label}}</label>
                             {{form.precio}}
+                            {% if form.precio.errors %}
+                                <div class="text-danger">
+                                    {{ form.precio.errors }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group">
                             <label for="{{form.id_Categoria.id_for_label}}">{{form.id_Categoria.label}}</label>
                             {{form.id_Categoria}}
+                            {% if form.id_Categoria.errors %}
+                                <div class="text-danger">
+                                    {{ form.id_Categoria.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="{{form.id_Tipo.id_for_label}}">{{form.id_Tipo.label}}</label>
+                            {{form.id_Tipo}}
+                            {% if form.id_Tipo.errors %}
+                                <div class="text-danger">
+                                    {{ form.id_Tipo.errors }}
+                                </div>
+                            {% endif %}
                         </div>
     
                         <div class="form-group text-center">
@@ -106,7 +146,6 @@
             </section>
         </div>
     </div>
-    
     <br><br><br><br><br><br><br><br><br><br><br><br>
     <br>
     
