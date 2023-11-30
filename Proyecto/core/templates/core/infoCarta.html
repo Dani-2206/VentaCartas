@@ -20,7 +20,9 @@
 <body>
     <header class="header">
         <div class="logo">
-          <img src="{% static 'img/nvdrstore.png'%}" alt="logo de la marca">
+          <a href="{% url 'index'%}">
+            <img src="{% static 'img/nvdrstore.png'%}" class="logo2" alt="Logo de SLee Dw">
+          </a>
         </div>
         <form class="form">
           <button>
@@ -39,7 +41,7 @@
         </form>
         <nav class="nav-links">
           <ul>
-            <li><a href="#">Servicios</a></li>
+            <li><a href="{% url 'noticias' %}">Noticias</a></li>
             <li><a href="{% url 'dana' %}">Cartas</a></li>
             <li><a href="#">Accesorios</a></li>
             <li><a href="{% url 'eventos' %}">Eventos</a></li>
@@ -115,11 +117,16 @@
         <li class="nav-item">
           <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Descripción del producto </a>
         </li>
+        
         <!--
         <li class="nav-item">
           <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews (0)</a>
         </li>-->
       </ul>
+
+
+
+
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
           {{carta.descripcion}}

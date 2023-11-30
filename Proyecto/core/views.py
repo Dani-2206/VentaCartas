@@ -298,6 +298,24 @@ def torneo(request):
     return render (request, 'core/torneomitos.html')
 
 
+def noticiayugi(request):
+    return render (request, 'core/noticiayugi.html')
+
+def noticiasmitos(request):
+    return render (request, 'core/noticiamitos.html')
+
+
+
+def noticias(request):
+    return render (request, 'core/noticias.html')
+
+def torneoyugioh(request):
+    return render (request, 'core/torneoyugioh.html')
+
+def torneomito(request):
+    return render (request, 'core/torneosmitos.html')
+
+
 
 
 

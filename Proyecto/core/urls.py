@@ -26,6 +26,15 @@ urlpatterns=[
     path('AgregarEvento',AgregarEvento,name="AgregarEvento"),
     path('modificar_evento/<int:id_evento>/', ModificarEvento, name='modificar_evento'),
     path('eliminar_evento/<int:id>/', EliminarEvento, name='eliminar_evento'),
+    path('noticiayugi',noticiayugi,name='noticiayugi'),
+    path('noticiamitos',noticiasmitos,name='noticiamitos'), 
+    path('noticias',noticias,name='noticias'),
+    path('torneoyugioh',torneoyugioh,name='torneoyugioh'),
+    path('torneomito',torneomito,name='torneomito'),
+
+
+
+
     
     
 

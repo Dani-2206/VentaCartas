@@ -40,7 +40,10 @@
 <body style="background-image:url('{% static 'img/kaibayugi.jpg' %}');">
   <header class="header">
     <div class="logo">
-      <img src="{% static 'img/nvdrstore.png'%}" alt="logo de la marca">
+      <a href="{% url 'index'%}">
+        <img src="{% static 'img/nvdrstore.png'%}" class="logo2" alt="Logo de SLee Dw">
+      </a>
+     
     </div>
     <form class="form">
       <button>
@@ -59,7 +62,7 @@
     </form>
     <nav class="nav-links">
       <ul>
-        <li><a href="#">Servicios</a></li>
+        <li><a href="{% url 'noticias' %}">Servicios</a></li>
         <li><a href="{% url 'dana' %}">Cartas</a></li>
         <li><a href="#">Accesorios</a></li>
         <li><a href="{% url 'eventos' %}">Eventos</a></li>
