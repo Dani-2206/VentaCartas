@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   
+
     <!DOCTYPE html>
-<html lang="en">
+    <html lang="en">
 
-<head>
-    {%load static%}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        {%load static%}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="{% static 'css/eventos.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/Styles.css' %}" type="text/css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{% static 'css/eventos.css' %}" type="text/css">
 
-    <title>Document</title>
-</head>
+        <title>Document</title>
+    </head>
 
 <body style="background-image:url('{% static 'img/' %}');">
     <header class="header">
         <div class="logo">
             <a href="{% url 'index'%}">
                 <img src="{% static 'img/nvdrstore.png'%}" class="logo2" alt="Logo de SLee Dw">
-              </a>
+            </a>
         </div>
         <form class="form">
             <button>
@@ -69,49 +70,97 @@
 
 
     </header>
-    <h1>Bienvenido al evento de mitos y leyendas</h1>
+    <h1 align="center">Se presenta el nuevo producto de Mitos y Leyendas (LootBox)</h1>
     <br>
     <br>
-    <p></p>
-</head>
-<body>
-    <footer class="pie-pagina">
-        <div class="grupo-1">
-            <div class="box">
-                <figure>
-                    <a href="{% url 'index'%}">
-                        <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
-                    </a>
+    <p align="center">Este mes de noviembre, se acaba de mostrar el nuevo producto de Mitos y Leyendas, la inesperada LootBox de este
+        año 2023.</p>
+    <br>
+    <br>
+    <h2 align="center">¿Qué es la Lootbox?</h2>
+    <br>
+    <br>
+    <a href="{% url 'tipo' tipo_carta=2 %}">
+        <img align= center src="{% static 'img/lootbox.jpg' %}" >
+      </a>
+    <p align="center">La Lootbox es un producto especial y único, en donde cada jugador puede vivir toda una experiencia y oportunidad
+        increíble para conseguir muchos productos del juego a un precio inigualable.
 
-                </figure>
+        Cada Lootbox esta armada con una configuración de cartas y productos que supera su precio original, en donde
+        podrás encontrar nuevas cartas para tu mazo favorito, Productos Especiales de Mitos y Leyendas, accesorios para
+        tus cartas y ¡Muchas otras sorpresas!.
+        <br>
+        <br>
+        <br>
 
-            </div>
-            <div class="box">
-                <h2>SOBRE NOSOTROS</h2>
-                <p><a href="{% url 'info'%}" class="info">Quiénes somos?</a></p>
-                <p><a href="{% url 'info'%}" class="info">Nuestra Misión</a></p>
-                <p><a href="{% url 'info'%}" class="info">Objetivos</a></p>
+        Una de las principales novedades es la inclusión de 12 nuevas cartas para Primer Bloque Extendido, las que
+        conmemoran fiestas de cada una de las culturas representadas en las ediciones clásicas de Primer Bloque. Dentro
+        de las festividades abordadas encontramos: Nativitas (Espada Sagrada), Fiesta de Teseias (Helénica), Fiesta de
+        Beltaine (Hijos de Daana), y Fiesta del Valle (Dominios de Ra).
+        <br>
+        <br>
+        <br>
 
-            </div>
-            <div class="box">
-                <h2>Síguenos</h2>
-                <div class="red-social">
-                    <a href="#" class="fa fa-facebook"><i class='bx bxl-facebook-circle'></i></a>
-                    <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
-                    <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp'></i></i></a>
-                    <a href="#" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
+        Una de cada 3 Lootbox puede contener una carta Secreta Exclusiva de este producto, la que puede ser al azar
+        dentro de 5 modelos distintos (este tipo de Lootbox tendrá 14 cartas en vez de las 13 del contenido regular)
+
+        Una de cada 12 Lootbox puede contener la carta Secreta Exclusiva "Festividades", la que esta asociada a una
+        entretenida campaña de coleccionabilidad (este tipo de Lootbox tendrá 14 cartas en vez de las 13 del contenido
+        regular)</p>
+        <br>
+        <br>
+        <h2 align="center">¿Qué contenido tendrá esta maravillosa Lootbox?</h2>
+        <br>
+        <br>
+        <p align="center"> - Productos de Mitos y Leyendas de Primer Bloque como Kit Raciales, Relatos de Espada Sagrada, Kit de Extensión Primer Bloque o bien Sets de Cartas de productos como Toolkit Premium.
+            <br>
+            - Un Mazo Preconstruido para comenzar a jugar en el formato Racial de Primer Bloque, este Mazo es Exclusivo de la Lootbox Primer Bloque 2023 (Ferie, Titan, Desafiante, Sacerdote).
+            <br>
+            - 8 Sobres de Primer Bloque (Leyedas 2.0, Espada Sagrada Aniversario o Helénica Aniversario)
+            <br>
+            - 13 cartas promocionales (1 de cada 3 contiene cartas adicionales)</p>
+            <br>
+    </head>
+
+    <body>
+        <footer class="pie-pagina">
+            <div class="grupo-1">
+                <div class="box">
+                    <figure>
+                        <a href="{% url 'index'%}">
+                            <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
+                        </a>
+
+                    </figure>
+
+                </div>
+                <div class="box">
+                    <h2>SOBRE NOSOTROS</h2>
+                    <p><a href="{% url 'info'%}" class="info">Quiénes somos?</a></p>
+                    <p><a href="{% url 'info'%}" class="info">Nuestra Misión</a></p>
+                    <p><a href="{% url 'info'%}" class="info">Objetivos</a></p>
+
+                </div>
+                <div class="box">
+                    <h2>Síguenos</h2>
+                    <div class="red-social">
+                        <a href="#" class="fa fa-facebook"><i class='bx bxl-facebook-circle'></i></a>
+                        <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
+                        <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp'></i></i></a>
+                        <a href="#" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="grupo-2">
-            <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
-        </div>
-    </footer>
-</body>
+            <div class="grupo-2">
+                <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
+            </div>
+        </footer>
+    </body>
 
 </html>
 
 
-    
+
 </body>
+
 </html>

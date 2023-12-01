@@ -15,9 +15,11 @@ body{
     width: 100%;
     position: relative;
     background-color: white;
+    
 
 
 }
+
 .header{
     background-color: #1b3039;
     display: flex;

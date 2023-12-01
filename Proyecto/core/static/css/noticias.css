@@ -46,3 +46,15 @@ body{
     transition: .2s;
 
 }
+
+h2{
+    color: white;
+}
+
+.h2{
+    color: white;
+}
+
+span{
+    color: white;
+}

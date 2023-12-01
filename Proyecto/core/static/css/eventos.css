@@ -47,3 +47,36 @@ body{
 
 }
 
+.post :hover .post-imagen-1
+.post :hover .post-imagen-2
+.post :hover .post-imagen-3{
+    transform: scale(1.1);
+}
+
+post header{
+    width: 100px;
+    height: 200px;
+    /* overflow:hidden: */
+    cursor: pointer;
+
+}
+
+h2{
+color: white;
+
+}
+.color{
+    color: white;
+}
+
+span{
+    color: white;
+}
+
+.url{
+    
+    padding:1rem;
+    text-decoration: none; 
+    color: white;
+    background-color: blue;
+}

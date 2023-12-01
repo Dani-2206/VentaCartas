@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 
-<body style="background-image:url('{% static 'img/kaibayugi.jpg' %}');">
+<body style="background-image:url('{% static 'img/kaibayugi.jpg' %}');background-repeat:no-repeat;background-size:cover;position:relative; background-attachment: fixed;" ></body>
     <header class="header">
         <div class="logo">
           <a href="{% url 'index'%}">
@@ -40,7 +40,6 @@
           <ul>
             <li><a href="{% url 'noticias' %}">Noticias</a></li>
             <li><a href="{% url 'dana' %}">Cartas</a></li>
-            <li><a href="#">Accesorios</a></li>
             <li><a href="{% url 'eventos' %}">Eventos</a></li>
     
           </ul>
@@ -68,9 +67,9 @@
                 <div class="post-header">
                     <div class="post-imagen-2">
                         <div class="post-body">
-                            <span>5 de septiembre 2000</span>
+                            <span style="color-font: white;">5 de septiembre 2000</span>
                             <img class="imagenes" src="{% static 'img/Mitos_y_Leyendas.png'%}" width="200px" height="350px">
-                            <h2>Torneo de Principiantes de Mitos Y Leyendas</h2>
+                            <h2 class="color">Torneo de Principiantes de Mitos Y Leyendas</h2>
                             <p></p>
                             <a href="{% url 'torneo' %}" class="post-link">Leer Mas.......</a>
                         </div>
@@ -83,7 +82,7 @@
                         <div class="post-body">
                             <span>5 de septiembre 2000</span>
                             <img class="imagenes" src="{% static 'img/yugiohlogo.png'%}" width="200px" height="350px">
-                            <h2>Torneo de Yugioh Formato Avanzado</h2>
+                            <h2 style="color: whitesmoke;">Torneo de Yugioh Formato Avanzado</h2>
                             <p></p>
                             <a href="{% url 'torneoyugioh' %}" class="post-link">Leer Mas.......</a>
                         </div>
