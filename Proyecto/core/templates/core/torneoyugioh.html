@@ -101,36 +101,37 @@
 <body>
     <footer class="pie-pagina">
         <div class="grupo-1">
-            <div class="box">
-                <figure>
-                    <a href="{% url 'index'%}">
-                        <img src="{% static 'img/logo.png'%}" class="logo2" alt="Logo de SLee Dw">
-                    </a>
-
-                </figure>
-
+          <div class="box">
+            <figure>
+              <a href="{% url 'index'%}">
+                <img src="{% static 'img/nvdrstore.png'%}" class="logo2" alt="Logo de SLee Dw">
+              </a>
+    
+            </figure>
+    
+          </div>
+          <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p><a href="{% url 'info'%}" class="info">Quiénes somos?</a></p>
+            <p><a href="{% url 'info'%}" class="info">Nuestra Misión</a></p>
+            <p><a href="{% url 'info'%}" class="info">Objetivos</a></p>
+    
+          </div>
+          <div class="box">
+            <h2>Síguenos</h2>
+            <div class="red-social">
+              {% if user.is_authenticated %}
+                <a href="https://discord.gg/bsPMUvvq"><img src="{% static 'img/logo_discord.png' %}" style="width: 100%; height: 100%;"></a>
+             {%endif%}
+              <a href="https://www.instagram.com/nvdr__store/" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nvdrstore@tienda.com" target="_blank" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
             </div>
-            <div class="box">
-                <h2>SOBRE NOSOTROS</h2>
-                <p><a href="{% url 'info'%}" class="info">Quiénes somos?</a></p>
-                <p><a href="{% url 'info'%}" class="info">Nuestra Misión</a></p>
-                <p><a href="{% url 'info'%}" class="info">Objetivos</a></p>
-
-            </div>
-            <div class="box">
-                <h2>Síguenos</h2>
-                <div class="red-social">
-                    <a href="#" class="fa fa-facebook"><i class='bx bxl-facebook-circle'></i></a>
-                    <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram'></i></a>
-                    <a href="#" class="fa fa-twitter"><i class='bx bxl-whatsapp'></i></i></a>
-                    <a href="#" class="fa fa-youtube"><i class='bx bx-envelope'></i></a>
-                </div>
-            </div>
+          </div>
         </div>
         <div class="grupo-2">
-            <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
+          <small>&copy; 2023 <b>NVDR</b> - Todos los Derechos Reservados.</small>
         </div>
-    </footer>
+      </footer>
 </body>
 
 </html>
